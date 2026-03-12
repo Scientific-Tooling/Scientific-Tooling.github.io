@@ -1,0 +1,23 @@
+{
+  "name": "Scientific Tooling",
+  "short_name": "Sci Tooling",
+  "description": "A public-facing home for skill-based scientific tooling and local AI-assisted research workflows.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4efe4",
+  "theme_color": "#1b7668",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

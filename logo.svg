@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bracketLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="bracketRight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+  </defs>
+  <!-- Brackets < > -->
+  <g fill="none" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="144,160 64,256 144,352" stroke="url(#bracketLeft)" />
+    <polyline points="368,160 448,256 368,352" stroke="url(#bracketRight)" />
+  </g>
+  <!-- DNA Strand -->
+  <g fill="none" stroke-width="20" stroke-linecap="round">
+    <path d="M 256 64 C 180 96, 180 128, 256 160 C 332 192, 332 320, 256 352 C 180 384, 180 416, 256 448" stroke="#10b981" />
+    <path d="M 256 64 C 332 96, 332 128, 256 160 C 180 192, 180 320, 256 352 C 332 384, 332 416, 256 448" stroke="#60a5fa" />
+  </g>
+  <!-- Base Pairs -->
+  <g stroke="#a78bfa" stroke-width="12" stroke-linecap="round">
+    <line x1="208" y1="112" x2="304" y2="112" />
+    <line x1="208" y1="400" x2="304" y2="400" />
+  </g>
+  <!-- AI Spark in Center -->
+  <path d="M 256 192 C 256 240, 224 256, 176 256 C 224 256, 256 272, 256 320 C 256 272, 288 256, 336 256 C 288 256, 256 240, 256 192 Z" fill="#0ea5e9" />
+</svg>
