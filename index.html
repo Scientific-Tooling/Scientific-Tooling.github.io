@@ -129,12 +129,12 @@
             </div>
             <div class="hero-facts" aria-label="Platform highlights">
               <article class="fact-chip">
-                <span class="fact-value">1</span>
-                <span class="fact-label">flagship repository live now</span>
+                <span class="fact-value">3</span>
+                <span class="fact-label">active repositories</span>
               </article>
               <article class="fact-chip">
-                <span class="fact-value">3</span>
-                <span class="fact-label">manuscript web editions</span>
+                <span class="fact-value">54</span>
+                <span class="fact-label">reusable skills across repositories</span>
               </article>
               <article class="fact-chip">
                 <span class="fact-value">Local</span>
@@ -154,9 +154,10 @@
                 <p class="mini-label">Flagship repository</p>
                 <h2>Structured Intelligence</h2>
                 <p>
-                  The current flagship project: 39 reusable skills spanning NGS variant
-                  calling, RNA-seq, single-cell RNA-seq, metagenomics, public database
-                  access, and literature retrieval — unified by one orchestration agent.
+                  54 reusable skills spanning NGS variant calling, RNA-seq,
+                  single-cell RNA-seq, metagenomics, statistical analysis,
+                  protein thermostability, public database access, and literature
+                  retrieval — unified by two orchestration agents.
                 </p>
                 <code>/structured-intelligence/</code>
               </article>
@@ -212,7 +213,7 @@
         <section class="section workflow-band">
           <div class="section-heading reveal reveal-1">
             <p class="eyebrow">Platform Structure</p>
-            <h2>Scientific Tooling now separates platform identity from project identity.</h2>
+            <h2>Scientific Tooling separates platform identity from project identity.</h2>
           </div>
           <div class="workflow-frame reveal reveal-2">
             <div class="workflow-step">
@@ -248,26 +249,28 @@
         <section class="section" id="projects">
           <div class="section-heading reveal reveal-1">
             <p class="eyebrow">Current Projects</p>
-            <h2>Start with the flagship repository, then move into manuscripts and artifacts.</h2>
+            <h2>Three repositories, one publication layer, one umbrella initiative.</h2>
           </div>
           <div class="card-grid">
             <article class="feature-card reveal reveal-1">
               <p class="card-tag">Flagship Repository</p>
               <h3>Structured Intelligence</h3>
               <p>
-                A repository for skill-based scientific tooling: 39 reusable local skills
-                across NGS, RNA-seq, single-cell RNA-seq, metagenomics, public database
-                search and download, literature retrieval, and domain annotation —
-                orchestrated by one NGS expert agent.
+                54 reusable local skills across NGS, RNA-seq, single-cell RNA-seq,
+                metagenomics, statistical analysis, protein thermostability prediction
+                and design, public database search and download, and literature
+                retrieval — orchestrated by two expert agents.
               </p>
               <ul>
                 <li>End-to-end NGS pipelines: WGS/WES variant calling, RNA-seq DE, scRNA-seq, and metagenomics</li>
+                <li>Statistical analysis suite: distribution fitting, GLMs, Bayesian estimation, survival analysis, PCA, and clustering</li>
+                <li>Protein thermostability: Tm prediction and mutation design with bioactivity-preserving constraints</li>
                 <li>Public archive access: SRA, GEO, ENA, GSA, NCBI Datasets, and GDC</li>
                 <li>NCBI E-utilities and RPS-BLAST skills with manuscript-style documentation</li>
               </ul>
               <div class="artifact-row">
-                <span>39 skills</span>
-                <span>1 agent</span>
+                <span>54 skills</span>
+                <span>2 agents</span>
                 <span>3 manuscripts</span>
               </div>
               <div class="card-links">
@@ -276,7 +279,56 @@
               </div>
             </article>
 
-            <article class="feature-card reveal reveal-2" id="manuscripts">
+            <article class="feature-card reveal reveal-2">
+              <p class="card-tag">Research Infrastructure</p>
+              <h3>Research Knowledge Substrate</h3>
+              <p>
+                An agent-first local research graph system for ingesting papers,
+                extracting structured research objects, querying evidence, and
+                serving a queryable local workspace. Packaged for PyPI distribution.
+              </p>
+              <ul>
+                <li>Ingest PDFs, DOI, arXiv, PMID, and canonical paper URLs with automatic PDF acquisition</li>
+                <li>Extract claims, methods, datasets, and concepts; build a typed graph of evidence relations</li>
+                <li>Hybrid lexical/semantic search with local embeddings</li>
+                <li>Agent-facing CLI and HTTP service with bundled skill export for Codex and Claude Code</li>
+              </ul>
+              <div class="artifact-row">
+                <span>SQLite graph store</span>
+                <span>CLI + HTTP API</span>
+                <span>PyPI package</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Scientific-Tooling/research-knowledge-substrate">Open repository</a>
+              </div>
+            </article>
+
+            <article class="feature-card reveal reveal-3">
+              <p class="card-tag">AI Reading Interface</p>
+              <h3>Agent PDF Workbench</h3>
+              <p>
+                An agent-aware PDF workspace that exposes paper reading sessions,
+                structured user interaction events, and durable annotations to AI
+                agents via MCP. Bridges the gap between passive PDF reading and
+                agent-grounded literature review.
+              </p>
+              <ul>
+                <li>Local PDF.js viewer with event capture: page changes, highlights, copies, and comments</li>
+                <li>Durable SQLite event store and annotation/note CRUD — replayable across conversations</li>
+                <li>MCP server entrypoint for Codex and Claude Code tool integration</li>
+                <li>React + TypeScript frontend; Python backend; full E2E test suite</li>
+              </ul>
+              <div class="artifact-row">
+                <span>MCP server</span>
+                <span>local viewer</span>
+                <span>event store</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench">Open repository</a>
+              </div>
+            </article>
+
+            <article class="feature-card reveal reveal-4" id="manuscripts">
               <p class="card-tag">Publication Layer</p>
               <h3>Structured Intelligence Manuscript Series</h3>
               <p>
@@ -333,11 +385,11 @@
               <p class="eyebrow">Organization</p>
               <h2>Scientific Tooling is now the public-facing layer for the work.</h2>
               <p>
-                The domain and organization name are meant to support a broader
-                initiative. Structured Intelligence remains the current flagship
-                repository, but the site structure now leaves room for additional
-                projects, manuscript collections, and reusable workflow assets over
-                time.
+                The domain and organization name support a broader initiative now
+                spanning three active repositories: Structured Intelligence for
+                skill-based scientific workflows, Research Knowledge Substrate for
+                local paper graph management, and Agent PDF Workbench for
+                agent-aware literature reading.
               </p>
               <p class="repo-note">
                 The broader initiative adds an independent AI interface layer around
@@ -372,12 +424,28 @@
                 </dd>
               </div>
               <div>
+                <dt>Research graph</dt>
+                <dd>
+                  <a href="https://github.com/Scientific-Tooling/research-knowledge-substrate">
+                    research-knowledge-substrate
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>PDF workspace</dt>
+                <dd>
+                  <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench">
+                    agent-pdf-workbench
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt>License</dt>
                 <dd>MIT</dd>
               </div>
               <div>
                 <dt>Current focus</dt>
-                <dd>Reusable skills, manuscripts, and local-first scientific workflows</dd>
+                <dd>Reusable skills, local research graphs, agent-aware reading, and manuscripts</dd>
               </div>
             </dl>
           </div>
