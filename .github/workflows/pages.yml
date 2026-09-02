@@ -29,10 +29,23 @@ jobs:
         with:
           enablement: true
 
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          rsync -a --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.claude' \
+            --exclude '_site' \
+            --exclude 'README.md' \
+            ./ _site/
+          echo "Published files:"
+          find _site -type f | sort
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

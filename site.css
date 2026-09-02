@@ -1,22 +1,19 @@
 :root {
-  --bg: #edf2f7;
-  --bg-strong: #dfeaf2;
   --paper: rgba(248, 250, 252, 0.78);
   --paper-strong: rgba(252, 253, 255, 0.94);
   --ink: #1e293b;
   --muted: #526171;
   --line: rgba(28, 43, 47, 0.14);
   --gold: #f97316;
-  --gold-soft: #fdba74;
+  /* Text-safe variant of --gold: 4.55:1 on the darkest page background (AA). */
+  --gold-ink: #c2410c;
   --teal: #2563eb;
-  --teal-soft: #93c5fd;
   --link: #1d4ed8;
   --link-hover: #1e40af;
   --shadow: 0 20px 50px rgba(48, 40, 20, 0.12);
   --shadow-soft: 0 10px 24px rgba(48, 40, 20, 0.08);
   --radius-xl: 32px;
   --radius-lg: 22px;
-  --radius-md: 16px;
   --max-width: 1180px;
 }
 
@@ -26,6 +23,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Keep in-page anchor targets clear of the sticky topbar. */
+[id] {
+  scroll-margin-top: 104px;
 }
 
 body {
@@ -84,7 +86,7 @@ a:focus-visible {
 }
 
 a:focus-visible {
-  outline: 2px solid rgba(27, 118, 104, 0.24);
+  outline: 2px solid var(--link);
   outline-offset: 3px;
   border-radius: 8px;
 }
@@ -241,7 +243,6 @@ a:focus-visible {
 .card-links a:focus-visible,
 .repo-meta a:hover,
 .repo-meta a:focus-visible {
-  outline: none;
   opacity: 0.92;
 }
 
@@ -333,10 +334,12 @@ a:focus-visible {
   border: 1px solid rgba(28, 43, 47, 0.08);
 }
 
-.mini-label,
-.card-tag {
+/* Scoped to their containers so the generic `.mini-card p` / `.feature-card p`
+   colour rule below does not override the label colour. */
+.mini-card .mini-label,
+.feature-card .card-tag {
   margin: 0;
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -391,11 +394,6 @@ a:focus-visible {
 .section-heading {
   max-width: none;
   margin-bottom: 24px;
-}
-
-.section-heading h2 {
-  font-size: clamp(1.8rem, 3.4vw, 2.9rem);
-  line-height: 1.02;
 }
 
 .thesis-grid,
@@ -558,7 +556,7 @@ a:focus-visible {
 
 .repo-meta dt {
   margin-bottom: 6px;
-  color: var(--gold);
+  color: var(--gold-ink);
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -623,8 +621,7 @@ a:focus-visible {
   .card-grid,
   .manuscript-strip,
   .thesis-grid,
-  .workflow-frame,
-  .prompt-grid {
+  .workflow-frame {
     grid-template-columns: 1fr;
   }
 
@@ -651,6 +648,10 @@ a:focus-visible {
   .footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  [id] {
+    scroll-margin-top: 140px;
   }
 
   .topbar {
@@ -823,6 +824,14 @@ a:focus-visible {
     scroll-behavior: auto;
   }
 
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@media print {
   .reveal {
     opacity: 1;
     transform: none;

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pages owned by this repository carry lastmod. The structured-intelligence
+  section maintains its own generated sitemap (advertised in robots.txt), which
+  is the authoritative source for its manuscript pages.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scientifictooling.org/</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
