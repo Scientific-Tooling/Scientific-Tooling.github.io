@@ -30,18 +30,16 @@ jobs:
       - run: python -m unittest discover -s tests -v
 
   unix-walkthrough:
-    name: Unix walkthrough (${{ matrix.os }}, ${{ matrix.shell }})
+    name: Unix walkthrough (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
-            shell: bash
+            shells: bash
           - os: macos-latest
-            shell: bash
-          - os: macos-latest
-            shell: zsh
+            shells: bash zsh
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -51,12 +49,17 @@ jobs:
       - run: python scripts/render_guide.py --check
       - run: python -m unittest discover -s tests -v
       - name: Run the documented Unix workflow
-        run: python tests/verify_unix_walkthrough.py --shell ${{ matrix.shell }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for smoke_shell in ${{ matrix.shells }}; do
+            python tests/verify_unix_walkthrough.py --shell "$smoke_shell"
+          done
       - name: Retain walkthrough diagnostics
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: unix-walkthrough-${{ matrix.os }}-${{ matrix.shell }}
+          name: unix-walkthrough-${{ matrix.os }}
           path: |
             .preview/unix-*/terminal-*.log
             .preview/unix-*/receipt.json
