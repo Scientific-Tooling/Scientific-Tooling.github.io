@@ -1,21 +1,41 @@
 name: deploy-pages
 
 on:
+  pull_request:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: github-pages
+  group: github-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  validate:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -r requirements-docs.txt
+      - run: python scripts/render_guide.py --check
+      - run: python -m unittest discover -s tests -v
+
   deploy:
+    needs: validate
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -36,6 +56,13 @@ jobs:
             --exclude '.git' \
             --exclude '.github' \
             --exclude '.claude' \
+            --exclude '.gitignore' \
+            --exclude '.site-venv' \
+            --exclude '.preview' \
+            --exclude '__pycache__' \
+            --exclude 'scripts' \
+            --exclude 'tests' \
+            --exclude 'requirements-docs.txt' \
             --exclude '_site' \
             --exclude 'README.md' \
             ./ _site/
