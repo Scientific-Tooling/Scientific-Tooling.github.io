@@ -11,13 +11,14 @@ Scientific-Tooling/structured-intelligence.
 title classes. Downstream project repositories should sync this file instead of
 copy-editing page-title styles independently.
 
-## RKS + APW walkthrough
+## RKS + APW walkthroughs
 
-The [Windows/PowerShell walkthrough](guides/rks-apw-windows.md) covers source
-installation, reading one PDF, selecting an annotation, previewing/applying its
-RKS import, and generating a brief with a verified passage link. Its dedicated
-page is [guides/rks-apw-windows/index.html](guides/rks-apw-windows/index.html),
-linked from the homepage navigation, main action and RKS/APW project cards.
+Start at the [operating-system chooser](guides/rks-apw/index.html), or read the
+[Windows/PowerShell source](guides/rks-apw-windows.md) and
+[Linux/macOS Bash/zsh source](guides/rks-apw-linux-macos.md). Both cover source
+installation, reading one PDF, selected evidence preview/import, a source-linked
+brief, and safe replay/backup. The homepage navigation and main action link to
+the chooser; RKS/APW project cards link directly to both platform versions.
 
 The Markdown is the source of truth. After editing it:
 
@@ -27,16 +28,34 @@ python scripts/render_guide.py
 python -m unittest discover -s tests -v
 ```
 
-`python scripts/render_guide.py --check` rejects stale generated HTML. CI checks
-command fidelity, site-owned links/assets/anchors, sitemap discovery and, on
-Windows, PowerShell syntax. The page uses the shared `theme.css` and `site.css`,
+`python scripts/render_guide.py --check` rejects stale generated HTML for either
+guide or the chooser. CI checks command fidelity, site-owned links/assets/anchors,
+sitemap discovery and native PowerShell/Bash/zsh syntax. The pages share `theme.css` and `site.css`,
 with guide-only styles and optional copy/print controls. No server-side runtime
-is needed. GitHub Pages deploys the generated HTML on a push to `main`.
+is needed. GitHub Pages deploys the generated HTML on a push to `main` after
+validation and the native Unix walkthrough jobs succeed.
+
+The Unix job executes all documented shell blocks in fresh public HTTPS clones
+and a new Python environment on Ubuntu Bash and macOS Bash/zsh. It supplies the
+manual highlight as an unreviewed fixture through APW's HTTP API, then checks the
+real preview/import, generated citation, replay counts and viewer shutdown. It
+does not automate the browser UI. To reproduce on Linux/macOS, with Python 3.10–3.12
+and venv available:
+
+```bash
+python3 tests/verify_unix_walkthrough.py --shell bash
+# Or, where zsh is installed:
+python3 tests/verify_unix_walkthrough.py --shell zsh
+```
+
+Logs and receipts remain under ignored `.preview/unix-*/` directories. CI retains
+only the logs, receipt and generated shell script on failure, not installed
+environments or cloned repositories.
 
 The required RKS/APW/Structured Intelligence source commits must be available
 publicly before publishing this guide; its three clone commands depend on them.
 
-Local verification on October 27, 2026 covered fresh source clones and Python
+Initial Windows-guide verification on October 27, 2026 covered fresh source clones and Python
 3.12 environments in Windows PowerShell 5.1 and PowerShell 7, including paths
 containing spaces and Unicode. A generated PDF fixture was highlighted through
 the real viewer; preview/import/brief generation and passage navigation passed,
@@ -45,6 +64,7 @@ clones of the required feature commits, not the older public branches.
 
 Desktop (1440 px) and mobile (390 px) Chromium checks covered homepage discovery,
 navigation, copied command text, fragment links, overflow and print styles.
-Five site checks passed on Windows; four passed on Ubuntu Python 3.10 with the
-Windows-only PowerShell syntax check skipped there. These engineering checks
+The current six site checks pass on Windows and Ubuntu, with the other platform's
+native syntax check skipped on each. Native Unix jobs additionally run the
+documented CLI/HTTP workflow on Ubuntu Bash and macOS Bash/zsh. These engineering checks
 do not establish scientific answer accuracy or independent expert review.

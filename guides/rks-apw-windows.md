@@ -23,6 +23,7 @@ activation is needed for this path; APW's viewer assets are already built.
 Run the blocks in order in **terminal A**, keeping that terminal open. The helper
 stops on a failed native command, including in Windows PowerShell 5.1. It changes
 no machine-wide Python installation or global RKS configuration.
+If you change `$work`, use the same path in terminal B.
 
 ```powershell
 $ErrorActionPreference = "Stop"

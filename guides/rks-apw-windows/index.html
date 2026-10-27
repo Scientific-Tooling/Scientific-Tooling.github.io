@@ -21,7 +21,6 @@
   <script src="../guide.js" defer></script>
 </head>
 <body class="guide-page">
-  <!-- Generated from guides/rks-apw-windows.md. SHA-256: e915605eaec64a689efbe902821b37b6ca0cc61b2b20c5cfaf95bacba120b5e8 -->
   <a class="skip-link" href="#walkthrough">Skip to walkthrough</a>
   <div class="page-shell">
     <header class="guide-header">
@@ -30,6 +29,7 @@
         <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../rks-apw-windows.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
+    <!-- Generated from guides/rks-apw-windows.md. SHA-256: 419d4c77238de1411b99798ab2427c2ca4ee7810f27a89c197916babc1d79bb6 -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
         <p class="eyebrow">In this walkthrough</p>
@@ -48,6 +48,7 @@
         <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">Windows · PowerShell</span></div>
       </aside>
       <article class="guide-content">
+        <nav class="platform-switch" aria-label="Operating system"><a href="../rks-apw-windows/" aria-current="page">Windows</a><a href="../rks-apw-linux-macos/">Linux / macOS</a></nav>
         <p class="eyebrow">RKS + Agent PDF Workbench</p>
         <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps"><div class="toc">
 <ul>
@@ -82,7 +83,8 @@ or compatible later revisions. Older package releases may lack these commands.</
 <h2 id="1-install-in-a-fresh-folder">1. Install in a fresh folder</h2>
 <p>Run the blocks in order in <strong>terminal A</strong>, keeping that terminal open. The helper
 stops on a failed native command, including in Windows PowerShell 5.1. It changes
-no machine-wide Python installation or global RKS configuration.</p>
+no machine-wide Python installation or global RKS configuration.
+If you change <code>$work</code>, use the same path in terminal B.</p>
 <div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 1">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 1"><code class="language-powershell">$ErrorActionPreference = &quot;Stop&quot;
 function Invoke-Checked {
     param([string]$Exe, [string[]]$ToolArgs)
