@@ -131,7 +131,16 @@ def verify(shell: str) -> Path:
                         break
                 except OSError:
                     if server.poll() is not None or time.monotonic() > deadline:
-                        raise RuntimeError("Viewer did not start; inspect terminal-b.log")
+                        with socket.socket() as direct:
+                            direct.settimeout(1)
+                            connection_error = direct.connect_ex(("127.0.0.1", 8790))
+                        details = {
+                            "viewer_exit": server.poll(), "direct_loopback_result": connection_error,
+                            "proxy_types": sorted(urllib.request.getproxies()),
+                            "loopback_proxy_bypass": urllib.request.proxy_bypass("127.0.0.1"),
+                            "viewer_log": (artifacts / "terminal-b.log").read_text(encoding="utf-8", errors="replace")[-1500:],
+                        }
+                        raise RuntimeError("Viewer startup diagnostics: " + json.dumps(details))
                     time.sleep(0.2)
             quote = "Reading handoff test source."
             stamp = datetime.now(timezone.utc).isoformat()
