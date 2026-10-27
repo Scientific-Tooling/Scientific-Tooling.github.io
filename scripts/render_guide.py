@@ -42,6 +42,7 @@ class Guide:
 GUIDES = (
     Guide("rks-apw-windows", "Windows", "powershell", "PowerShell", "Windows · PowerShell"),
     Guide("rks-apw-linux-macos", "Linux / macOS", "bash", "Bash / zsh", "Linux / macOS · Bash / zsh"),
+    Guide("paper-to-brief", "Guided workflow", "text", "Command", "Windows · Linux · macOS"),
 )
 
 
@@ -120,7 +121,7 @@ def render(guide: Guide) -> str:
         <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">{escape(guide.badge)}</span></div>
       </aside>
       <article class="guide-content">
-        <nav class="platform-switch" aria-label="Operating system">{tabs}</nav>
+        <nav class="platform-switch" aria-label="Walkthrough">{tabs}</nav>
         <p class="eyebrow">RKS + Agent PDF Workbench</p>
         <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps">{converter.toc}</nav></details>
         {content}
@@ -135,12 +136,15 @@ def render_index() -> str:
     cards = "".join(
         f'<a class="platform-card" href="../{guide.slug}/"><span class="eyebrow">{escape(guide.code_label)}</span>'
         f'<h2>{escape(guide.name)}</h2><p>Install, read, highlight, import selected evidence, and generate a source-linked brief.</p>'
-        '<span>Open walkthrough →</span></a>' for guide in GUIDES
+        '<span>Open walkthrough →</span></a>' for guide in GUIDES[:2]
     )
     body = f'''<main class="guide-chooser" id="walkthrough">
       <p class="eyebrow">RKS + Agent PDF Workbench</p>
-      <h1>Choose your walkthrough.</h1>
-      <p class="lede">Take one paper PDF from reading and annotation to a brief that opens the original supporting passage. Choose the commands for your operating system.</p>
+      <h1>Start with one paper.</h1>
+      <p class="lede">Open a PDF, select useful evidence, and get a brief that returns to the original passage.</p>
+      <a class="platform-card guided-start" href="../paper-to-brief/"><span class="eyebrow">Recommended · All platforms</span><h2>Guided workflow</h2><p>One package manages the workspace and reader. Use the visual evidence controls, or ask your agent to coordinate.</p><span>Open the quick start →</span></a>
+      <h2>Explore the individual tools</h2>
+      <p>These manual walkthroughs show each underlying step.</p>
       <div class="platform-cards">{cards}</div>
       <p class="chooser-note">Both guides use local source checkouts and an isolated Python environment. No API key or MCP setup is required for this path.</p>
     </main>'''
@@ -162,7 +166,7 @@ def main() -> int:
             output.write_text(expected, encoding="utf-8", newline="\n")
             print(output.relative_to(ROOT))
     if args.check:
-        print("Both walkthroughs and the OS chooser match their sources.")
+        print("All walkthroughs and the start page match their sources.")
     return 0
 
 

@@ -104,3 +104,8 @@
   .guide-content h2 { break-after: avoid; }
   .guide-content a { color: #000; }
 }
+.guided-start {
+  display: block;
+  margin: 2rem 0 3rem;
+  border: 2px solid #2563eb;
+}

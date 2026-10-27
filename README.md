@@ -13,7 +13,10 @@ copy-editing page-title styles independently.
 
 ## RKS + APW walkthroughs
 
-Start at the [operating-system chooser](guides/rks-apw/index.html), or read the
+Start with the [guided PDF-to-brief workflow](guides/paper-to-brief.md), which uses
+one installable CLI, an optional agent skill and the reader's evidence controls.
+The [walkthrough start page](guides/rks-apw/index.html) recommends this path.
+For the individual tools, read the
 [Windows/PowerShell source](guides/rks-apw-windows.md) and
 [Linux/macOS Bash/zsh source](guides/rks-apw-linux-macos.md). Both cover source
 installation, reading one PDF, selected evidence preview/import, a source-linked
@@ -28,8 +31,8 @@ python scripts/render_guide.py
 python -m unittest discover -s tests -v
 ```
 
-`python scripts/render_guide.py --check` rejects stale generated HTML for either
-guide or the chooser. CI checks command fidelity, site-owned links/assets/anchors,
+`python scripts/render_guide.py --check` rejects stale generated HTML for all
+three guides and the start page. CI checks command fidelity, site-owned links/assets/anchors,
 sitemap discovery and native PowerShell/Bash/zsh syntax. The pages share `theme.css` and `site.css`,
 with guide-only styles and optional copy/print controls. No server-side runtime
 is needed. GitHub Pages deploys the generated HTML on a push to `main` after
@@ -53,7 +56,9 @@ only the logs, receipt and generated shell script on failure, not installed
 environments or cloned repositories.
 
 The required RKS/APW/Structured Intelligence source commits must be available
-publicly before publishing this guide; its three clone commands depend on them.
+publicly before publishing the guides. The guided package pins its RKS/APW Git
+dependencies; its native installed-wheel and browser journey tests live in
+Structured Intelligence, including interrupted ingestion/import and viewer resume.
 
 Initial Windows-guide verification on October 27, 2026 covered fresh source clones and Python
 3.12 environments in Windows PowerShell 5.1 and PowerShell 7, including paths

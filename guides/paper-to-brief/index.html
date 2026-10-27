@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RKS + PDF Workbench: Guided workflow walkthrough | Scientific Tooling</title>
+  <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise Command walkthrough." />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="color-scheme" content="light only" />
+  <link rel="canonical" href="https://scientifictooling.org/guides/paper-to-brief/" />
+  <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../theme.css" />
+  <link rel="stylesheet" href="../../site.css" />
+  <link rel="stylesheet" href="../guide.css" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="RKS + PDF Workbench: Guided workflow walkthrough | Scientific Tooling" />
+  <meta property="og:description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise Command walkthrough." />
+  <meta property="og:url" content="https://scientifictooling.org/guides/paper-to-brief/" />
+  <meta property="og:image" content="https://scientifictooling.org/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script src="../guide.js" defer></script>
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#walkthrough">Skip to walkthrough</a>
+  <div class="page-shell">
+    <header class="guide-header">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="40" height="40" /><span>Scientific Tooling</span></a>
+        <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../paper-to-brief.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
+      </nav>
+    </header>
+    <!-- Generated from guides/paper-to-brief.md. SHA-256: e3117a48b0979afd21487c6153561902671bada401f41da32b7e7bdd03bead31 -->
+    <main class="guide-layout" id="walkthrough">
+      <aside class="guide-sidebar">
+        <p class="eyebrow">In this walkthrough</p>
+        <nav aria-label="Walkthrough steps"><div class="toc">
+<ul>
+<li><a href="#1-install-once">1. Install once</a></li>
+<li><a href="#2-open-your-paper">2. Open your paper</a></li>
+<li><a href="#3-keep-evidence-and-get-your-brief">3. Keep evidence and get your brief</a></li>
+<li><a href="#prefer-to-ask-your-agent">Prefer to ask your agent?</a></li>
+<li><a href="#stop-and-continue-later">Stop and continue later</a></li>
+</ul>
+</div>
+</nav>
+        <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">Windows · Linux · macOS</span></div>
+      </aside>
+      <article class="guide-content">
+        <nav class="platform-switch" aria-label="Walkthrough"><a href="../rks-apw-windows/">Windows</a><a href="../rks-apw-linux-macos/">Linux / macOS</a><a href="../paper-to-brief/" aria-current="page">Guided workflow</a></nav>
+        <p class="eyebrow">RKS + Agent PDF Workbench</p>
+        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps"><div class="toc">
+<ul>
+<li><a href="#1-install-once">1. Install once</a></li>
+<li><a href="#2-open-your-paper">2. Open your paper</a></li>
+<li><a href="#3-keep-evidence-and-get-your-brief">3. Keep evidence and get your brief</a></li>
+<li><a href="#prefer-to-ask-your-agent">Prefer to ask your agent?</a></li>
+<li><a href="#stop-and-continue-later">Stop and continue later</a></li>
+</ul>
+</div>
+</nav></details>
+        <h1 id="one-paper-one-question-a-source-linked-brief">One paper. One question. A source-linked brief.</h1>
+<p>Open a PDF, choose the passages worth keeping, and download a brief that links
+back to the source. <strong>Scientific Tooling manages the setup between RKS and APW</strong>:
+workspace paths, reading sessions, evidence transfers and the local reader.
+The same workflow works on Windows, Linux and macOS.</p>
+<h2 id="1-install-once">1. Install once</h2>
+<p>You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
+Your agent can do this setup for you. Install the workflow package:</p>
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 1">Copy</button></div><pre tabindex="0" aria-label="Command block 1"><code class="language-text">python -m pip install &quot;git+https://github.com/Scientific-Tooling/structured-intelligence.git&quot;
+</code></pre></div>
+<p>Use <code>python3</code> if that is your interpreter's name. The installation includes
+compatible RKS and APW versions and the built PDF reader. No Node.js, model API
+key or MCP connection is needed. This is a Git source installation; no new PyPI
+release is required. If your system Python disallows package installation, use
+a virtual environment rather than overriding its protection.</p>
+<h2 id="2-open-your-paper">2. Open your paper</h2>
+<p>Replace the PDF path and question with your own:</p>
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 2">Copy</button></div><pre tabindex="0" aria-label="Command block 2"><code class="language-text">scientific-tooling start &quot;paper.pdf&quot; --question &quot;What evidence addresses my question?&quot; --workspace &quot;my-review&quot;
+</code></pre></div>
+<p>The reader opens automatically. <strong>One workspace holds one paper and question.</strong>
+The command creates the workspace, preserves the PDF revision, and starts the
+reader. You do not need a second terminal or any paper/session IDs.</p>
+<p>If your environment does not put the command on PATH, use
+<code>python -m scientific_tooling</code> instead of <code>scientific-tooling</code>.</p>
+<h2 id="3-keep-evidence-and-get-your-brief">3. Keep evidence and get your brief</h2>
+<ol>
+<li>Highlight a passage in the PDF; add a comment if useful.</li>
+<li>In <strong>Evidence &amp; brief</strong>, check the highlights or notes you want to keep.</li>
+<li>Click <strong>Preview selected evidence</strong> and inspect the quotes and comments.</li>
+<li>Click <strong>Import evidence &amp; create brief</strong>, then <strong>Download brief</strong>.</li>
+</ol>
+<p>The brief includes original quotes, page references and links back to the
+highlighted passages. Importing an observation preserves its review status;
+it does not establish scientific agreement or human review.</p>
+<h2 id="prefer-to-ask-your-agent">Prefer to ask your agent?</h2>
+<p>Install the bundled skill into your agent's skills directory. For example:</p>
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 3">Copy</button></div><pre tabindex="0" aria-label="Command block 3"><code class="language-text">scientific-tooling skill --dest &quot;~/.codex/skills&quot;
+</code></pre></div>
+<p>Use <code>~/.claude/skills</code> for a host using that directory, or provide its actual
+skills directory. Reload skills in your agent, then ask:</p>
+<blockquote>
+<p>Use paper-to-brief to read this PDF and collect evidence relevant to my question.</p>
+</blockquote>
+<p>The agent reads the source with its available tools, proposes passages, and
+coordinates the same workflow. You can inspect its selections in the PDF reader.
+Agent-created interpretations stay unreviewed. The CLI itself makes no model
+calls; your agent host supplies the reasoning and governs any model data sharing.</p>
+<h2 id="stop-and-continue-later">Stop and continue later</h2>
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 4">Copy</button></div><pre tabindex="0" aria-label="Command block 4"><code class="language-text">scientific-tooling stop --workspace &quot;my-review&quot;
+scientific-tooling resume --workspace &quot;my-review&quot;
+</code></pre></div>
+<p>Resume restores the saved workspace and reader. Passage links work while the
+reader is running. Repeating an import does not duplicate its evidence. If a
+selection changes after preview, the workflow asks for a fresh preview.</p>
+<p>For installation diagnostics, run <code>scientific-tooling doctor</code>. For saved progress,
+run <code>scientific-tooling status --workspace "my-review"</code>. Back up the entire
+workspace after stopping all writers; restore it at the same absolute location
+in this first version.</p>
+<p>See the <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md">CLI and recovery reference</a>
+for agent JSON output, revision updates and SSH usage. The manual
+<a href="../rks-apw-windows/">Windows</a> and <a href="../rks-apw-linux-macos/">Linux/macOS</a>
+walkthroughs explain the individual tools if you need that detail.</p>
+      </article>
+    </main>
+    <p class="copy-status" role="status" aria-live="polite"></p>
+    <footer class="footer"><p><a href="../../">Scientific Tooling</a></p><p>Keep the source. Make the next step clear.</p></footer>
+  </div>
+</body>
+</html>

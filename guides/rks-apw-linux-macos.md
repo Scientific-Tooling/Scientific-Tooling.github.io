@@ -1,5 +1,9 @@
 # From a paper PDF to a source-linked brief
 
+For the shorter path, use the [guided workflow](../paper-to-brief/): one package
+manages the workspace and reader, with visual evidence controls and an optional
+agent skill. The steps below explain the individual tools.
+
 Use **Research Knowledge Substrate (RKS)** to keep papers and imported evidence,
 and **Agent PDF Workbench (APW)** to read and annotate the original PDF.
 Structured Intelligence connects their command-line tools. This walkthrough

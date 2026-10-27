@@ -36,7 +36,7 @@ class Page(HTMLParser):
             self.canonicals.append(attrs["href"])
         if tag == "button" and attrs.get("class") == "copy-button":
             self.buttons += 1
-        if tag == "code" and attrs.get("class") in {"language-powershell", "language-bash"}:
+        if tag == "code" and attrs.get("class") in {"language-powershell", "language-bash", "language-text"}:
             self.in_code = True
             self.blocks.append("")
 
