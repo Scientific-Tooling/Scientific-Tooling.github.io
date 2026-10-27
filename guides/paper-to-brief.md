@@ -1,9 +1,8 @@
 # One paper. One question. A source-linked brief.
 
 Open a PDF, choose the passages worth keeping, and download a brief that links
-back to the source. **Scientific Tooling manages the setup between RKS and APW**:
-workspace paths, reading sessions, evidence transfers and the local reader.
-The same workflow works on Windows, Linux and macOS.
+back to the source. Scientific Tooling handles the workspace and reader setup.
+The same commands work on Windows, Linux and macOS.
 
 ## 1. Install once
 
@@ -85,6 +84,5 @@ workspace after stopping all writers; restore it at the same absolute location
 in this first version.
 
 See the [CLI and recovery reference](https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md)
-for agent JSON output, revision updates and SSH usage. The manual
-[Windows](../rks-apw-windows/) and [Linux/macOS](../rks-apw-linux-macos/)
-walkthroughs explain the individual tools if you need that detail.
+for agent JSON output, revision updates and SSH usage. For debugging or developing
+integrations, see [advanced manual operations](https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/README.md).

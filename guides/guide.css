@@ -28,17 +28,9 @@
 .guide-summary p { color: var(--muted); }
 .guide-badge { display: inline-block; color: #1e40af; background: #dbeafe; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; }
 .guide-content { min-width: 0; line-height: 1.72; }
-.platform-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
-.platform-switch a { padding: 6px 12px; border: 1px solid #b6c7db; border-radius: 8px; font-size: 0.85rem; text-decoration: none; }
-.platform-switch a[aria-current="page"] { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
-.guide-chooser { width: min(calc(100% - 40px), 1000px); margin: 58px auto 88px; }
-.guide-chooser h1 { margin: 0; font-size: clamp(2.35rem, 5vw, 3.8rem); line-height: 1.1; }
-.platform-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 36px 0 24px; }
-.platform-card { display: block; padding: 28px; border: 1px solid #c8d4e2; border-radius: 20px; background: var(--paper-strong); box-shadow: var(--shadow-soft); text-decoration: none; }
-.platform-card h2 { margin: 0 0 16px; font-size: 2rem; color: var(--ink); }
-.platform-card p { color: var(--muted); line-height: 1.7; }
-.platform-card > span:last-child { font-weight: 700; }
-.chooser-note { color: var(--muted); line-height: 1.7; }
+.guide-landing { width: min(calc(100% - 40px), 850px); margin: 58px auto 88px; }
+.guide-landing h1 { margin: 0; font-size: clamp(2.35rem, 5vw, 3.8rem); line-height: 1.1; }
+.manual-reference { margin-top: 36px; color: var(--muted); line-height: 1.7; }
 .mobile-toc { display: none; }
 .guide-content h1 { margin: 0 0 24px; max-width: 22ch; font-size: clamp(2.35rem, 4.5vw, 3.8rem); line-height: 1.06; text-wrap: balance; }
 .guide-content h2 { margin: 44px 0 16px; padding-top: 20px; border-top: 1px solid var(--line); font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.15; }
@@ -76,7 +68,6 @@
 }
 
 @media (max-width: 560px) {
-  .platform-cards { grid-template-columns: minmax(0, 1fr); }
   .guide-header,
   .guide-layout { width: calc(100% - 28px); }
   .guide-header .topbar { border-radius: 20px; align-items: start; }
@@ -92,7 +83,6 @@
   body::after,
   .guide-header,
   .guide-sidebar,
-  .platform-switch,
   .copy-button,
   .copy-status,
   .mobile-toc,
@@ -103,9 +93,4 @@
   .code-block pre code { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 9pt; }
   .guide-content h2 { break-after: avoid; }
   .guide-content a { color: #000; }
-}
-.guided-start {
-  display: block;
-  margin: 2rem 0 3rem;
-  border: 2px solid #2563eb;
 }

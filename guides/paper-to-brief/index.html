@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RKS + PDF Workbench: Guided workflow walkthrough | Scientific Tooling</title>
-  <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise Command walkthrough." />
+  <title>Paper to brief: quick start | Scientific Tooling</title>
+  <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage." />
   <meta name="theme-color" content="#2563eb" />
   <meta name="color-scheme" content="light only" />
   <link rel="canonical" href="https://scientifictooling.org/guides/paper-to-brief/" />
+
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../guide.css" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="RKS + PDF Workbench: Guided workflow walkthrough | Scientific Tooling" />
-  <meta property="og:description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise Command walkthrough." />
+  <meta property="og:title" content="Paper to brief: quick start | Scientific Tooling" />
+  <meta property="og:description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage." />
   <meta property="og:url" content="https://scientifictooling.org/guides/paper-to-brief/" />
   <meta property="og:image" content="https://scientifictooling.org/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <script src="../guide.js" defer></script>
 </head>
 <body class="guide-page">
-  <a class="skip-link" href="#walkthrough">Skip to walkthrough</a>
+  <a class="skip-link" href="#walkthrough">Skip to content</a>
   <div class="page-shell">
     <header class="guide-header">
       <nav class="topbar" aria-label="Primary">
@@ -29,11 +30,11 @@
         <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../paper-to-brief.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
-    <!-- Generated from guides/paper-to-brief.md. SHA-256: e5a3393113d3f1520780f25fb903acf1eef86ba24c1ba56841ae986ac32a10e5 -->
+    <!-- Generated from guides/paper-to-brief.md. SHA-256: cd4421c26496fc591a9d55730ef4dd2f31df57d4b6a345411f43d0af483abd15 -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
-        <p class="eyebrow">In this walkthrough</p>
-        <nav aria-label="Walkthrough steps"><div class="toc">
+        <p class="eyebrow">Quick start</p>
+        <nav aria-label="Quick start steps"><div class="toc">
 <ul>
 <li><a href="#1-install-once">1. Install once</a></li>
 <li><a href="#2-open-your-paper">2. Open your paper</a></li>
@@ -46,9 +47,8 @@
         <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">Windows · Linux · macOS</span></div>
       </aside>
       <article class="guide-content">
-        <nav class="platform-switch" aria-label="Walkthrough"><a href="../rks-apw-windows/">Windows</a><a href="../rks-apw-linux-macos/">Linux / macOS</a><a href="../paper-to-brief/" aria-current="page">Guided workflow</a></nav>
-        <p class="eyebrow">RKS + Agent PDF Workbench</p>
-        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps"><div class="toc">
+        <p class="eyebrow">PDF to brief · Quick start</p>
+        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile quick start steps"><div class="toc">
 <ul>
 <li><a href="#1-install-once">1. Install once</a></li>
 <li><a href="#2-open-your-paper">2. Open your paper</a></li>
@@ -60,9 +60,8 @@
 </nav></details>
         <h1 id="one-paper-one-question-a-source-linked-brief">One paper. One question. A source-linked brief.</h1>
 <p>Open a PDF, choose the passages worth keeping, and download a brief that links
-back to the source. <strong>Scientific Tooling manages the setup between RKS and APW</strong>:
-workspace paths, reading sessions, evidence transfers and the local reader.
-The same workflow works on Windows, Linux and macOS.</p>
+back to the source. Scientific Tooling handles the workspace and reader setup.
+The same commands work on Windows, Linux and macOS.</p>
 <h2 id="1-install-once">1. Install once</h2>
 <p>You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
 Your agent can do this setup for you. Install the workflow package:</p>
@@ -120,9 +119,8 @@ run <code>sci status --workspace "my-review"</code>. Back up the entire
 workspace after stopping all writers; restore it at the same absolute location
 in this first version.</p>
 <p>See the <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md">CLI and recovery reference</a>
-for agent JSON output, revision updates and SSH usage. The manual
-<a href="../rks-apw-windows/">Windows</a> and <a href="../rks-apw-linux-macos/">Linux/macOS</a>
-walkthroughs explain the individual tools if you need that detail.</p>
+for agent JSON output, revision updates and SSH usage. For debugging or developing
+integrations, see <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/README.md">advanced manual operations</a>.</p>
       </article>
     </main>
     <p class="copy-status" role="status" aria-live="polite"></p>

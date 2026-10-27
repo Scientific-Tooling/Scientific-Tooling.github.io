@@ -3,224 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RKS + PDF Workbench: Windows walkthrough | Scientific Tooling</title>
-  <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise PowerShell walkthrough." />
+  <title>Find the PDF-to-brief quick start | Scientific Tooling</title>
+  <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage." />
   <meta name="theme-color" content="#2563eb" />
   <meta name="color-scheme" content="light only" />
-  <link rel="canonical" href="https://scientifictooling.org/guides/rks-apw-windows/" />
+  <link rel="canonical" href="https://scientifictooling.org/guides/paper-to-brief/" />
+  <meta name="robots" content="noindex, follow" />
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../guide.css" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="RKS + PDF Workbench: Windows walkthrough | Scientific Tooling" />
-  <meta property="og:description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage. A concise PowerShell walkthrough." />
-  <meta property="og:url" content="https://scientifictooling.org/guides/rks-apw-windows/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Find the PDF-to-brief quick start | Scientific Tooling" />
+  <meta property="og:description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage." />
+  <meta property="og:url" content="https://scientifictooling.org/guides/paper-to-brief/" />
   <meta property="og:image" content="https://scientifictooling.org/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <script src="../guide.js" defer></script>
+
 </head>
 <body class="guide-page">
-  <a class="skip-link" href="#walkthrough">Skip to walkthrough</a>
+  <a class="skip-link" href="#walkthrough">Skip to content</a>
   <div class="page-shell">
     <header class="guide-header">
       <nav class="topbar" aria-label="Primary">
         <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="40" height="40" /><span>Scientific Tooling</span></a>
-        <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../rks-apw-windows.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
+        <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../paper-to-brief/">Quick start</a></div>
       </nav>
     </header>
-    <!-- Generated from guides/rks-apw-windows.md. SHA-256: 04576601a914c9bd2d28a2b07c00b0a8e8e6a1cbebf8b4ee673e59a057f2bb6e -->
-    <main class="guide-layout" id="walkthrough">
-      <aside class="guide-sidebar">
-        <p class="eyebrow">In this walkthrough</p>
-        <nav aria-label="Walkthrough steps"><div class="toc">
-<ul>
-<li><a href="#1-install-in-a-fresh-folder">1. Install in a fresh folder</a></li>
-<li><a href="#2-ingest-your-pdf-and-save-the-handoff">2. Ingest your PDF and save the handoff</a></li>
-<li><a href="#3-open-the-reader-and-highlight-a-passage">3. Open the reader and highlight a passage</a></li>
-<li><a href="#4-select-the-annotation-and-preview-the-import">4. Select the annotation and preview the import</a></li>
-<li><a href="#5-apply-the-plan-and-generate-the-brief">5. Apply the plan and generate the brief</a></li>
-<li><a href="#6-replay-safely-and-keep-your-work">6. Replay safely and keep your work</a></li>
-<li><a href="#if-something-stops">If something stops</a></li>
-</ul>
-</div>
-</nav>
-        <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">Windows · PowerShell</span></div>
-      </aside>
-      <article class="guide-content">
-        <nav class="platform-switch" aria-label="Walkthrough"><a href="../rks-apw-windows/" aria-current="page">Windows</a><a href="../rks-apw-linux-macos/">Linux / macOS</a><a href="../paper-to-brief/">Guided workflow</a></nav>
-        <p class="eyebrow">RKS + Agent PDF Workbench</p>
-        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps"><div class="toc">
-<ul>
-<li><a href="#1-install-in-a-fresh-folder">1. Install in a fresh folder</a></li>
-<li><a href="#2-ingest-your-pdf-and-save-the-handoff">2. Ingest your PDF and save the handoff</a></li>
-<li><a href="#3-open-the-reader-and-highlight-a-passage">3. Open the reader and highlight a passage</a></li>
-<li><a href="#4-select-the-annotation-and-preview-the-import">4. Select the annotation and preview the import</a></li>
-<li><a href="#5-apply-the-plan-and-generate-the-brief">5. Apply the plan and generate the brief</a></li>
-<li><a href="#6-replay-safely-and-keep-your-work">6. Replay safely and keep your work</a></li>
-<li><a href="#if-something-stops">If something stops</a></li>
-</ul>
-</div>
-</nav></details>
-        <h1 id="from-a-paper-pdf-to-a-source-linked-brief">From a paper PDF to a source-linked brief</h1>
-<p>For the shorter path, use the <a href="../paper-to-brief/">guided workflow</a>: one package
-manages the workspace and reader, with visual evidence controls and an optional
-agent skill. The steps below explain the individual tools.</p>
-<p>Use <strong>Research Knowledge Substrate (RKS)</strong> to keep papers and imported evidence,
-and <strong>Agent PDF Workbench (APW)</strong> to read and annotate the original PDF.
-Structured Intelligence connects their command-line tools. This walkthrough
-takes one local PDF through reading, selected evidence import, and a brief with
-a link back to the highlighted passage.</p>
-<p><strong>You need:</strong> Windows, PowerShell 5.1 or 7, Git, Python 3.10–3.12 on PATH, an
-internet connection for installation, and a local PDF you may use. Python 3.12
-is the tested installation here. No API key, MCP connection, Node.js, or shell
-activation is needed for this path; APW's viewer assets are already built.</p>
-<blockquote>
-<p>This is a source-checkout workflow. It requires the features in RKS
-<a href="https://github.com/Scientific-Tooling/research-knowledge-substrate/commit/6fc5c61">6fc5c61</a>,
-APW <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/a435c2f">a435c2f</a>,
-and Structured Intelligence
-<a href="https://github.com/Scientific-Tooling/structured-intelligence/commit/a673678">a673678</a>,
-or compatible later revisions. Older package releases may lack these commands.</p>
-</blockquote>
-<h2 id="1-install-in-a-fresh-folder">1. Install in a fresh folder</h2>
-<p>Run the blocks in order in <strong>terminal A</strong>, keeping that terminal open. The helper
-stops on a failed native command, including in Windows PowerShell 5.1. It changes
-no machine-wide Python installation or global RKS configuration.
-If you change <code>$work</code>, use the same path in terminal B.</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 1">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 1"><code class="language-powershell">$ErrorActionPreference = &quot;Stop&quot;
-function Invoke-Checked {
-    param([string]$Exe, [string[]]$ToolArgs)
-    &amp; $Exe @ToolArgs
-    if ($LASTEXITCODE -ne 0) { throw &quot;Command failed: $Exe (exit $LASTEXITCODE)&quot; }
-}
-$work = Join-Path $env:USERPROFILE &quot;scientific-tooling-demo&quot;
-if (Test-Path -LiteralPath $work) { throw &quot;Choose a new folder for this first run: $work&quot; }
-New-Item -ItemType Directory -Path $work | Out-Null
-foreach ($repo in &quot;research-knowledge-substrate&quot;, &quot;agent-pdf-workbench&quot;, &quot;structured-intelligence&quot;) {
-    Invoke-Checked git @(&quot;clone&quot;, &quot;https://github.com/Scientific-Tooling/$repo.git&quot;, (Join-Path $work $repo))
-}
-Invoke-Checked python @(&quot;-m&quot;, &quot;venv&quot;, &quot;$work\.venv&quot;)
-$py = &quot;$work\.venv\Scripts\python.exe&quot;
-Invoke-Checked $py @(&quot;-m&quot;, &quot;pip&quot;, &quot;install&quot;, &quot;-e&quot;, &quot;$work\research-knowledge-substrate&quot;, &quot;-e&quot;, &quot;$work\agent-pdf-workbench&quot;)
-$si = &quot;$work\structured-intelligence&quot;
-$run = &quot;$work\review&quot;
-New-Item -ItemType Directory -Path $run | Out-Null
-$env:RKS_DATA_DIR = &quot;$run\rks-data&quot;
-$env:RKS_AUTO_EXTRACT_MODE = &quot;none&quot;
-Invoke-Checked $py @(&quot;-m&quot;, &quot;rks&quot;, &quot;init-db&quot;)
-</code></pre></div>
-<p><strong>Expected:</strong> both packages install and RKS initializes the new review database.
-If <code>python</code> is unavailable, install Python and reopen PowerShell before continuing.</p>
-<h2 id="2-ingest-your-pdf-and-save-the-handoff">2. Ingest your PDF and save the handoff</h2>
-<p>Paste a full file path without surrounding quotes when prompted. Use the paper
-ID returned by ingestion; do not assume it is <code>p_000001</code>. The two workspace names
-used below must stay stable for this review.</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 2">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 2"><code class="language-powershell">$pdf = (Resolve-Path -LiteralPath (Read-Host &quot;Full path to your PDF&quot;)).Path
-$question = Read-Host &quot;The bounded question you are reading this paper to investigate&quot;
-$paper = (Invoke-Checked $py @(&quot;-m&quot;, &quot;rks&quot;, &quot;ingest&quot;, &quot;pdf&quot;, $pdf) | Out-String) | ConvertFrom-Json
-$paperId = $paper.id
-$handoffFile = &quot;$run\reading-handoff.json&quot;
-$handoffText = Invoke-Checked $py @(
-    &quot;$si\scripts\research_reading.py&quot;, $paperId,
-    &quot;--workspace-id&quot;, &quot;windows-review&quot;, &quot;--rks-data-dir&quot;, $env:RKS_DATA_DIR,
-    &quot;--apw-db&quot;, &quot;$run\events.db&quot;, &quot;--cache-dir&quot;, &quot;$run\pdfs&quot;,
-    &quot;--rks-python&quot;, $py, &quot;--apw-python&quot;, $py
-) | Out-String
-$handoffText | Set-Content -LiteralPath $handoffFile -Encoding UTF8
-$handoff = $handoffText | ConvertFrom-Json
-$handoff.apw.viewer_url
-</code></pre></div>
-<p><strong>Expected:</strong> a viewer URL containing a session ID. The adapter preserves and
-verifies a copy of this PDF revision in <code>review\pdfs</code>.</p>
-<h2 id="3-open-the-reader-and-highlight-a-passage">3. Open the reader and highlight a passage</h2>
-<p>In a <strong>second PowerShell terminal (B)</strong>, start the viewer and leave it running:</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 3">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 3"><code class="language-powershell">$work = Join-Path $env:USERPROFILE &quot;scientific-tooling-demo&quot;
-&amp; &quot;$work\.venv\Scripts\apw-viewer-server.exe&quot; --host 127.0.0.1 --port 8790 --db-path &quot;$work\review\events.db&quot; --pdf-root &quot;$work\review\pdfs&quot;
-</code></pre></div>
-<p>Back in <strong>terminal A</strong>, open the session:</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 4">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 4"><code class="language-powershell">Start-Process $handoff.apw.viewer_url
-</code></pre></div>
-<p>Select a short, uniquely identifiable passage in the PDF. In the small selection
-toolbar, optionally enter a <strong>Quick comment</strong>, then click <strong>Highlight</strong>. Confirm
-the quote and page appear under <strong>Annotations</strong>. The highlight is saved in APW;
-it has not yet been imported into RKS.</p>
-<h2 id="4-select-the-annotation-and-preview-the-import">4. Select the annotation and preview the import</h2>
-<p>In terminal A, list the saved annotations and copy the ID of the one you intend
-to import. This local viewer request only reads the annotation list.</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 5">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 5"><code class="language-powershell">$viewer = &quot;http://127.0.0.1:8790&quot;
-$sid = [uri]::EscapeDataString($handoff.apw.session_id)
-$saved = Invoke-RestMethod &quot;$viewer/api/annotations?session_id=$sid&quot;
-$saved.annotations | ForEach-Object {
-    [pscustomobject]@{ Id = $_.id; Page = $_.annotation.page; Quote = $_.annotation.quote }
-} | Format-Table -Wrap
-$annotationId = Read-Host &quot;Annotation ID to import&quot;
-$bundle = &quot;$run\evidence.json&quot;
-$plan = &quot;$run\import-plan.json&quot;
-Invoke-Checked $py @(
-    &quot;$si\scripts\research_evidence.py&quot;, $handoffFile,
-    &quot;--source-id&quot;, &quot;windows-reader&quot;, &quot;--annotation-id&quot;, $annotationId,
-    &quot;--bundle&quot;, $bundle, &quot;--plan&quot;, $plan, &quot;--rks-python&quot;, $py, &quot;--apw-python&quot;, $py
-)
-Get-Content -LiteralPath $plan
-</code></pre></div>
-<p><strong>Expected:</strong> one proposed addition and zero conflicts. Inspect the selected
-quote, paper identity, and plan. Nothing has been applied to RKS yet. If the
-preview reports a conflict, resolve the reported cause before applying it.</p>
-<h2 id="5-apply-the-plan-and-generate-the-brief">5. Apply the plan and generate the brief</h2>
-<p>After checking the preview, explicitly import that selected evidence:</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 6">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 6"><code class="language-powershell">$importArgs = @(
-    &quot;-m&quot;, &quot;rks&quot;, &quot;note&quot;, &quot;import-evidence&quot;, $bundle,
-    &quot;--workspace-id&quot;, &quot;windows-review&quot;, &quot;--apply&quot;, &quot;--plan&quot;, $plan
-)
-Invoke-Checked $py $importArgs
-</code></pre></div>
-<p><strong>Expected:</strong> <code>added: 1</code>. The item remains <strong>unreviewed</strong>. Importing a reading
-observation does not turn it into a scientifically reviewed graph claim.</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 7">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 7"><code class="language-powershell">$brief = &quot;$run\reading-brief.md&quot;
-Invoke-Checked $py @(
-    &quot;$si\scripts\research_brief.py&quot;, $paperId, &quot;--question&quot;, $question,
-    &quot;--workspace-id&quot;, &quot;windows-review&quot;, &quot;--rks-data-dir&quot;, $env:RKS_DATA_DIR,
-    &quot;--source-id&quot;, &quot;windows-reader&quot;, &quot;--apw-db&quot;, &quot;$run\events.db&quot;,
-    &quot;--rks-python&quot;, $py, &quot;--apw-python&quot;, $py, &quot;--output&quot;, $brief
-)
-Get-Content -LiteralPath $brief
-$passage = [regex]::Match((Get-Content -LiteralPath $brief -Raw), '\[Open the supporting passage\]\(([^)]+)\)')
-if (-not $passage.Success) { throw &quot;No active passage link: inspect the brief's source warning.&quot; }
-Start-Process $passage.Groups[1].Value
-</code></pre></div>
-<p><strong>Expected:</strong> the brief records the interpretation, source quote, page, review
-status, and provenance. Its link opens the intended PDF page and highlighted
-passage. Keep terminal B running while following these local links. The brief is
-an evidence inventory; it does not generate or validate a scientific answer.</p>
-<h2 id="6-replay-safely-and-keep-your-work">6. Replay safely and keep your work</h2>
-<p>Repeating the exact import is safe:</p>
-<div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 8">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 8"><code class="language-powershell">Invoke-Checked $py $importArgs
-</code></pre></div>
-<p><strong>Expected:</strong> <code>added: 0</code>, <code>unchanged: 1</code>. For a new selection or edited annotation,
-use new bundle, plan, and brief filenames, inspect the new preview, and follow
-the <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/evidence-import.md">evidence update procedure</a>.
-Existing output files deliberately are not overwritten by the adapters.</p>
-<p>Press <strong>Ctrl+C in terminal B</strong> to stop the viewer. With the viewer and other RKS/APW
-processes stopped, back up the whole <code>review</code> folder together: RKS data, APW
-database and sidecars, verified PDFs, handoff, exports, plans, and brief. Retain
-the <code>windows-review</code> and <code>windows-reader</code> identities when restoring this workspace.</p>
-<h2 id="if-something-stops">If something stops</h2>
-<ul>
-<li><strong>Unknown command or missing script:</strong> check the required source revisions above.
-  This walkthrough does not assume the latest PyPI package contains these features.</li>
-<li><strong>Port 8790 is occupied:</strong> stop the old viewer if you own it, then start terminal B
-  again. The handoff, brief, and annotation-list commands here all use port 8790.</li>
-<li><strong>Missing or ambiguous passage:</strong> keep the original PDF and quote; inspect the
-  warning. Select a distinctive passage in the correct source and prepare a new
-  export/preview. Do not force an old anchor onto another PDF revision.</li>
-<li><strong>Existing file or stale plan:</strong> preserve the old artifact, use a new filename,
-  and regenerate the preview against current state.</li>
-</ul>
-<p>For details, see <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/source-reading.md">source reading</a>,
-<a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/evidence-import.md">selected evidence import</a>,
-and <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/source-linked-brief.md">passage-linked briefs</a>.</p>
-      </article>
+    <main class="guide-landing" id="walkthrough">
+      <p class="eyebrow">PDF to brief</p>
+      <h1>Looking for the walkthrough?</h1>
+      <p class="lede">The quick start handles setup, reading and evidence import with the same commands on Windows, Linux and macOS.</p>
+      <p><a class="button button-primary" href="../paper-to-brief/">Open the quick start →</a></p>
+      <p class="manual-reference">For debugging or developing integrations, see <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/windows.md">Advanced manual operations: Windows / PowerShell</a>.</p>
     </main>
     <p class="copy-status" role="status" aria-live="polite"></p>
     <footer class="footer"><p><a href="../../">Scientific Tooling</a></p><p>Keep the source. Make the next step clear.</p></footer>

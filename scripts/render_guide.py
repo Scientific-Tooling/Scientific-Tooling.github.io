@@ -1,4 +1,4 @@
-"""Render the Markdown walkthroughs and OS chooser; --check rejects stale HTML."""
+"""Render the quick start and compatibility pages; --check rejects stale files."""
 
 from __future__ import annotations
 
@@ -14,8 +14,12 @@ import markdown
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://scientifictooling.org/"
 DESCRIPTION = "Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage."
-INDEX_OUTPUT = ROOT / "guides/rks-apw/index.html"
-INDEX_URL = BASE_URL + "guides/rks-apw/"
+MANUAL_URL = "https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/"
+LEGACY_PAGES = {
+    "rks-apw": ("README.md", "Advanced manual operations"),
+    "rks-apw-windows": ("windows.md", "Advanced manual operations: Windows / PowerShell"),
+    "rks-apw-linux-macos": ("unix.md", "Advanced manual operations: Linux / macOS"),
+}
 
 
 @dataclass(frozen=True)
@@ -40,15 +44,14 @@ class Guide:
 
 
 GUIDES = (
-    Guide("rks-apw-windows", "Windows", "powershell", "PowerShell", "Windows · PowerShell"),
-    Guide("rks-apw-linux-macos", "Linux / macOS", "bash", "Bash / zsh", "Linux / macOS · Bash / zsh"),
-    Guide("paper-to-brief", "Guided workflow", "text", "Command", "Windows · Linux · macOS"),
+    Guide("paper-to-brief", "Quick start", "text", "Command", "Windows · Linux · macOS"),
 )
 
 
-def document(title: str, description: str, url: str, body: str, header_links: str, *, article: bool) -> str:
-    script = '<script src="../guide.js" defer></script>' if article else ""
+def document(title: str, description: str, url: str, body: str, header_links: str, *, article: bool, legacy: bool = False) -> str:
+    script = '  <script src="../guide.js" defer></script>' if article else ""
     kind = "article" if article else "website"
+    robots = '  <meta name="robots" content="noindex, follow" />' if legacy else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +62,7 @@ def document(title: str, description: str, url: str, body: str, header_links: st
   <meta name="theme-color" content="#2563eb" />
   <meta name="color-scheme" content="light only" />
   <link rel="canonical" href="{url}" />
+{robots}
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
@@ -69,10 +73,10 @@ def document(title: str, description: str, url: str, body: str, header_links: st
   <meta property="og:url" content="{url}" />
   <meta property="og:image" content="https://scientifictooling.org/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  {script}
+{script}
 </head>
 <body class="guide-page">
-  <a class="skip-link" href="#walkthrough">Skip to walkthrough</a>
+  <a class="skip-link" href="#walkthrough">Skip to content</a>
   <div class="page-shell">
     <header class="guide-header">
       <nav class="topbar" aria-label="Primary">
@@ -109,54 +113,58 @@ def render(guide: Guide) -> str:
 
     content = re.sub(fr'<pre><code class="language-{re.escape(guide.language)}">(.*?)</code></pre>', code_block, content, flags=re.S)
     fingerprint = hashlib.sha256(source.encode("utf-8")).hexdigest()
-    tabs = "".join(
-        f'<a href="../{option.slug}/"' + (' aria-current="page"' if option == guide else '') + f'>{escape(option.name)}</a>'
-        for option in GUIDES
-    )
     body = f'''<!-- Generated from guides/{guide.slug}.md. SHA-256: {fingerprint} -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
-        <p class="eyebrow">In this walkthrough</p>
-        <nav aria-label="Walkthrough steps">{converter.toc}</nav>
+        <p class="eyebrow">Quick start</p>
+        <nav aria-label="Quick start steps">{converter.toc}</nav>
         <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">{escape(guide.badge)}</span></div>
       </aside>
       <article class="guide-content">
-        <nav class="platform-switch" aria-label="Walkthrough">{tabs}</nav>
-        <p class="eyebrow">RKS + Agent PDF Workbench</p>
-        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile walkthrough steps">{converter.toc}</nav></details>
+        <p class="eyebrow">PDF to brief · Quick start</p>
+        <details class="mobile-toc"><summary>On this page</summary><nav aria-label="Mobile quick start steps">{converter.toc}</nav></details>
         {content}
       </article>
     </main>'''
     header = f'<a href="../{guide.slug}.md">Markdown source</a><button type="button" class="print-button">Print guide</button>'
-    return document(f"RKS + PDF Workbench: {guide.name} walkthrough | Scientific Tooling",
-                    DESCRIPTION + f" A concise {guide.code_label} walkthrough.", guide.url, body, header, article=True)
+    return document("Paper to brief: quick start | Scientific Tooling",
+                    DESCRIPTION, guide.url, body, header, article=True)
 
 
-def render_index() -> str:
-    cards = "".join(
-        f'<a class="platform-card" href="../{guide.slug}/"><span class="eyebrow">{escape(guide.code_label)}</span>'
-        f'<h2>{escape(guide.name)}</h2><p>Install, read, highlight, import selected evidence, and generate a source-linked brief.</p>'
-        '<span>Open walkthrough →</span></a>' for guide in GUIDES[:2]
-    )
-    body = f'''<main class="guide-chooser" id="walkthrough">
-      <p class="eyebrow">RKS + Agent PDF Workbench</p>
-      <h1>Start with one paper.</h1>
-      <p class="lede">Open a PDF, select useful evidence, and get a brief that returns to the original passage.</p>
-      <a class="platform-card guided-start" href="../paper-to-brief/"><span class="eyebrow">Recommended · All platforms</span><h2>Guided workflow</h2><p>One package manages the workspace and reader. Use the visual evidence controls, or ask your agent to coordinate.</p><span>Open the quick start →</span></a>
-      <h2>Explore the individual tools</h2>
-      <p>These manual walkthroughs show each underlying step.</p>
-      <div class="platform-cards">{cards}</div>
-      <p class="chooser-note">Both guides use local source checkouts and an isolated Python environment. No API key or MCP setup is required for this path.</p>
+def legacy_markdown(slug: str) -> str:
+    filename, label = LEGACY_PAGES[slug]
+    return f'''# Looking for the walkthrough?
+
+Start with the [PDF-to-brief quick start]({GUIDES[0].url}). The same `sci`
+commands work on Windows, Linux and macOS.
+
+For debugging or developing integrations, the individual tool commands are in
+[{label}]({MANUAL_URL}{filename}).
+'''
+
+
+def render_legacy(slug: str) -> str:
+    filename, label = LEGACY_PAGES[slug]
+    body = f'''<main class="guide-landing" id="walkthrough">
+      <p class="eyebrow">PDF to brief</p>
+      <h1>Looking for the walkthrough?</h1>
+      <p class="lede">The quick start handles setup, reading and evidence import with the same commands on Windows, Linux and macOS.</p>
+      <p><a class="button button-primary" href="../paper-to-brief/">Open the quick start →</a></p>
+      <p class="manual-reference">For debugging or developing integrations, see <a href="{MANUAL_URL}{filename}">{escape(label)}</a>.</p>
     </main>'''
-    return document("RKS + PDF Workbench walkthroughs | Scientific Tooling", DESCRIPTION,
-                    INDEX_URL, body, '<a href="https://github.com/Scientific-Tooling">GitHub</a>', article=False)
+    return document("Find the PDF-to-brief quick start | Scientific Tooling", DESCRIPTION,
+                    GUIDES[0].url, body, '<a href="../paper-to-brief/">Quick start</a>', article=False, legacy=True)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    pages = [(guide.output, render(guide)) for guide in GUIDES] + [(INDEX_OUTPUT, render_index())]
+    pages = [(guide.output, render(guide)) for guide in GUIDES]
+    for slug in LEGACY_PAGES:
+        pages.append((ROOT / "guides" / slug / "index.html", render_legacy(slug)))
+        if slug != "rks-apw":
+            pages.append((ROOT / "guides" / f"{slug}.md", legacy_markdown(slug)))
     for output, expected in pages:
         if args.check:
             if not output.exists() or output.read_text(encoding="utf-8") != expected:
@@ -166,7 +174,7 @@ def main() -> int:
             output.write_text(expected, encoding="utf-8", newline="\n")
             print(output.relative_to(ROOT))
     if args.check:
-        print("All walkthroughs and the start page match their sources.")
+        print("The quick start and compatibility pages match their sources.")
     return 0
 
 

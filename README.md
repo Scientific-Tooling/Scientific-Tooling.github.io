@@ -11,65 +11,38 @@ Scientific-Tooling/structured-intelligence.
 title classes. Downstream project repositories should sync this file instead of
 copy-editing page-title styles independently.
 
-## RKS + APW walkthroughs
+## PDF-to-brief quick start
 
-Start with the [guided PDF-to-brief workflow](guides/paper-to-brief.md), which uses
-one installable CLI, an optional agent skill and the reader's evidence controls.
-The [walkthrough start page](guides/rks-apw/index.html) recommends this path.
-For the individual tools, read the
-[Windows/PowerShell source](guides/rks-apw-windows.md) and
-[Linux/macOS Bash/zsh source](guides/rks-apw-linux-macos.md). Both cover source
-installation, reading one PDF, selected evidence preview/import, a source-linked
-brief, and safe replay/backup. The homepage navigation and main action link to
-the chooser; RKS/APW project cards link directly to both platform versions.
+The [quick start](guides/paper-to-brief.md) is the single onboarding guide for
+Windows, Linux and macOS. Homepage navigation, the main action and the RKS/APW
+project cards link directly to it. The CLI handles setup and the reader;
+the bundled agent skill can coordinate the same workflow.
 
-The Markdown is the source of truth. After editing it:
+Detailed individual-tool instructions and their native shell/workflow tests live
+in Structured Intelligence's
+[advanced manual operations](https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/README.md).
+The previous `/guides/rks-apw/`, `/guides/rks-apw-windows/` and
+`/guides/rks-apw-linux-macos/` URLs remain as lightweight landing pages with a
+quick-start link and the appropriate advanced reference. Old Markdown URLs also
+remain available. The legacy pages point their canonical metadata at the quick
+start and are excluded from the sitemap.
 
-```powershell
+Edit `guides/paper-to-brief.md`, then regenerate:
+
+```text
 python -m pip install -r requirements-docs.txt
 python scripts/render_guide.py
 python -m unittest discover -s tests -v
 ```
 
-`python scripts/render_guide.py --check` rejects stale generated HTML for all
-three guides and the start page. CI checks command fidelity, site-owned links/assets/anchors,
-sitemap discovery and native PowerShell/Bash/zsh syntax. The pages share `theme.css` and `site.css`,
-with guide-only styles and optional copy/print controls. No server-side runtime
-is needed. GitHub Pages deploys the generated HTML on a push to `main` after
-validation and the native Unix walkthrough jobs succeed.
+The renderer owns the generated HTML and the two legacy Markdown stubs.
+`python scripts/render_guide.py --check` rejects stale output. Site checks cover
+command copy fidelity, direct homepage discovery, legacy destinations,
+site-owned links/assets/anchors and canonical sitemap entries. Pages deploys on
+push to `main` after these checks pass. Copy/print controls are progressive
+enhancements; the content and navigation work without JavaScript.
 
-The Unix job executes all documented shell blocks in fresh public HTTPS clones
-and a new Python environment on Ubuntu Bash and macOS Bash/zsh. It supplies the
-manual highlight as an unreviewed fixture through APW's HTTP API, then checks the
-real preview/import, generated citation, replay counts and viewer shutdown. It
-does not automate the browser UI. To reproduce on Linux/macOS, with Python 3.10–3.12
-and venv available:
-
-```bash
-python3 tests/verify_unix_walkthrough.py --shell bash
-# Or, where zsh is installed:
-python3 tests/verify_unix_walkthrough.py --shell zsh
-```
-
-Logs and receipts remain under ignored `.preview/unix-*/` directories. CI retains
-only the logs, receipt and generated shell script on failure, not installed
-environments or cloned repositories.
-
-The required RKS/APW/Structured Intelligence source commits must be available
-publicly before publishing the guides. The guided package pins its RKS/APW Git
-dependencies; its native installed-wheel and browser journey tests live in
-Structured Intelligence, including interrupted ingestion/import and viewer resume.
-
-Initial Windows-guide verification on October 27, 2026 covered fresh source clones and Python
-3.12 environments in Windows PowerShell 5.1 and PowerShell 7, including paths
-containing spaces and Unicode. A generated PDF fixture was highlighted through
-the real viewer; preview/import/brief generation and passage navigation passed,
-and replay returned one unchanged item with no additions. These runs used local
-clones of the required feature commits, not the older public branches.
-
-Desktop (1440 px) and mobile (390 px) Chromium checks covered homepage discovery,
-navigation, copied command text, fragment links, overflow and print styles.
-The current six site checks pass on Windows and Ubuntu, with the other platform's
-native syntax check skipped on each. Native Unix jobs additionally run the
-documented CLI/HTTP workflow on Ubuntu Bash and macOS Bash/zsh. These engineering checks
-do not establish scientific answer accuracy or independent expert review.
+Structured Intelligence CI retains the native PowerShell/Bash/zsh syntax checks
+and the manual CLI/HTTP workflow on Ubuntu Bash and macOS Bash/zsh, alongside
+its installed `sci` and real browser workflow tests. These engineering checks do
+not establish scientific answer accuracy or independent expert review.
