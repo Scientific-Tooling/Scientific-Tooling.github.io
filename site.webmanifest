@@ -4,8 +4,8 @@
   "description": "A public-facing home for skill-based scientific tooling and local AI-assisted research workflows.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f7fafc",
-  "theme_color": "#2563eb",
+  "background_color": "#f7f8f5",
+  "theme_color": "#08786e",
   "icons": [
     {
       "src": "/logo.png",

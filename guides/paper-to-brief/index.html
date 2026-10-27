@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Paper to brief: quick start | Scientific Tooling</title>
   <meta name="description" content="Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage." />
-  <meta name="theme-color" content="#2563eb" />
+  <meta name="theme-color" content="#08786e" />
   <meta name="color-scheme" content="light only" />
   <link rel="canonical" href="https://scientifictooling.org/guides/paper-to-brief/" />
 
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../guide.css" />
@@ -62,7 +64,8 @@
 <p>Open a PDF, choose the passages worth keeping, and download a brief that links
 back to the source. Scientific Tooling handles the workspace and reader setup.
 The same commands work on Windows, Linux and macOS.</p>
-<h2 id="1-install-once">1. Install once</h2>
+<nav class="guide-overview" aria-label="Workflow overview"><a href="#1-install-once"><span aria-hidden="true">01</span>Install once</a><a href="#2-open-your-paper"><span aria-hidden="true">02</span>Open a PDF</a><a href="#3-keep-evidence-and-get-your-brief"><span aria-hidden="true">03</span>Keep evidence</a></nav>
+<h2 id="1-install-once"><span class="step-number">1</span> Install once</h2>
 <p>You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
 Your agent can do this setup for you. Install the workflow package:</p>
 <div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 1">Copy</button></div><pre tabindex="0" aria-label="Command block 1"><code class="language-text">python -m pip install --upgrade &quot;git+https://github.com/Scientific-Tooling/structured-intelligence.git&quot;
@@ -75,7 +78,7 @@ a virtual environment rather than overriding its protection.</p>
 <p>The short command is <strong><code>sci</code></strong> (version 0.1.1 or later). The original
 <code>scientific-tooling</code> command also works. The installation command above upgrades
 an existing installation while preserving your saved workspaces.</p>
-<h2 id="2-open-your-paper">2. Open your paper</h2>
+<h2 id="2-open-your-paper"><span class="step-number">2</span> Open your paper</h2>
 <p>Replace the PDF path and question with your own:</p>
 <div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 2">Copy</button></div><pre tabindex="0" aria-label="Command block 2"><code class="language-text">sci start &quot;paper.pdf&quot; --question &quot;What evidence addresses my question?&quot; --workspace &quot;my-review&quot;
 </code></pre></div>
@@ -84,7 +87,7 @@ The command creates the workspace, preserves the PDF revision, and starts the
 reader. You do not need a second terminal or any paper/session IDs.</p>
 <p>If your environment does not put the command on PATH, use
 <code>python -m scientific_tooling</code> instead of <code>sci</code>.</p>
-<h2 id="3-keep-evidence-and-get-your-brief">3. Keep evidence and get your brief</h2>
+<h2 id="3-keep-evidence-and-get-your-brief"><span class="step-number">3</span> Keep evidence and get your brief</h2>
 <ol>
 <li>Highlight a passage in the PDF; add a comment if useful.</li>
 <li>In <strong>Evidence &amp; brief</strong>, check the highlights or notes you want to keep.</li>

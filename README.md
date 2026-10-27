@@ -11,6 +11,14 @@ Scientific-Tooling/structured-intelligence.
 title classes. Downstream project repositories should sync this file instead of
 copy-editing page-title styles independently.
 
+The site uses locally served Manrope and Source Serif 4 fonts, with their open
+font licenses under `assets/fonts/`. Shared colors, spacing, navigation and
+responsive layouts live in `site.css`; reading-specific styles live in
+`guides/guide.css`. Project capability lists use native disclosure controls.
+The guide's current-section indicator enhances ordinary anchor navigation.
+Fonts, layout, navigation and content remain usable without JavaScript or
+external font services; print and reduced-motion preferences are respected.
+
 ## PDF-to-brief quick start
 
 The [quick start](guides/paper-to-brief.md) is the single onboarding guide for

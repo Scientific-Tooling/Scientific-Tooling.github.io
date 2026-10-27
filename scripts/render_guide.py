@@ -59,11 +59,13 @@ def document(title: str, description: str, url: str, body: str, header_links: st
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{escape(title)}</title>
   <meta name="description" content="{escape(description, quote=True)}" />
-  <meta name="theme-color" content="#2563eb" />
+  <meta name="theme-color" content="#08786e" />
   <meta name="color-scheme" content="light only" />
   <link rel="canonical" href="{url}" />
 {robots}
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../guide.css" />
@@ -112,6 +114,14 @@ def render(guide: Guide) -> str:
         )
 
     content = re.sub(fr'<pre><code class="language-{re.escape(guide.language)}">(.*?)</code></pre>', code_block, content, flags=re.S)
+    # Keep the source heading IDs and command text intact while adding visual steps.
+    content = re.sub(r'(<h2 id="[^"]+">)([1-3])\. (.*?)</h2>',
+                     r'\1<span class="step-number">\2</span> \3</h2>', content)
+    overview = '<nav class="guide-overview" aria-label="Workflow overview">' + "".join(
+        f'<a href="#{escape(step["id"], quote=True)}"><span aria-hidden="true">0{number}</span>{label}</a>'
+        for number, (step, label) in enumerate(zip(converter.toc_tokens, ("Install once", "Open a PDF", "Keep evidence")), 1)
+    ) + '</nav>\n'
+    content = content.replace('<h2 ', overview + '<h2 ', 1)
     fingerprint = hashlib.sha256(source.encode("utf-8")).hexdigest()
     body = f'''<!-- Generated from guides/{guide.slug}.md. SHA-256: {fingerprint} -->
     <main class="guide-layout" id="walkthrough">

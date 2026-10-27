@@ -1,21 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page not found | Scientific Tooling</title>
-    <meta name="description" content="This Scientific Tooling page does not exist. Return to the organization homepage or open the flagship project." />
+    <meta
+      name="description"
+      content="This Scientific Tooling page does not exist. Return to the organization homepage or open the flagship project."
+    />
     <meta name="robots" content="noindex,follow" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#08786e" />
     <meta name="color-scheme" content="light only" />
     <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Crimson+Pro:wght@400;500;600;700&amp;display=swap"
+      rel="preload"
+      href="/assets/fonts/manrope-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/source-serif-4-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link rel="stylesheet" href="/theme.css" />
     <link rel="stylesheet" href="/site.css" />
@@ -46,24 +57,37 @@
         </nav>
 
         <section class="hero-grid" id="top">
-          <div class="hero-copy reveal reveal-1">
+          <div class="hero-copy">
             <p class="eyebrow">Error 404</p>
             <h1 class="title-hero">This page does not exist.</h1>
             <p class="lede">
-              The address you followed is not part of this site. Project pages live
-              under their own path, and manuscripts are published inside the flagship
-              project rather than at the domain root.
+              The address you followed is not part of this site. Project pages
+              live under their own path, and manuscripts are published inside
+              the flagship project rather than at the domain root.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="/">Back to homepage</a>
-              <a class="button button-secondary" href="/structured-intelligence/">
+              <a
+                class="button button-secondary"
+                href="/structured-intelligence/"
+              >
                 Open Structured Intelligence
               </a>
             </div>
             <ul class="signal-list" aria-label="Common destinations">
-              <li><a href="/structured-intelligence/">Flagship project site</a></li>
-              <li><a href="/structured-intelligence/manuscripts/">Manuscript web editions</a></li>
-              <li><a href="https://github.com/Scientific-Tooling">GitHub organization</a></li>
+              <li>
+                <a href="/structured-intelligence/">Flagship project site</a>
+              </li>
+              <li>
+                <a href="/structured-intelligence/manuscripts/"
+                  >Manuscript web editions</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/Scientific-Tooling"
+                  >GitHub organization</a
+                >
+              </li>
             </ul>
           </div>
         </section>
