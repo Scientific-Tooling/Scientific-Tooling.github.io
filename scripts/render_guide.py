@@ -13,7 +13,7 @@ import markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://scientifictooling.org/"
-DESCRIPTION = "Read and annotate a PDF, import selected evidence into RKS, and create a brief with links to the original passage."
+DESCRIPTION = "Read papers under one research question, collect selected evidence, and create a project brief with links to the original passages."
 MANUAL_URL = "https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/manual-operations/"
 LEGACY_PAGES = {
     "rks-apw": ("README.md", "Advanced manual operations"),
