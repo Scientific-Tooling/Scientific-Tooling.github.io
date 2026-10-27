@@ -59,13 +59,12 @@ def document(title: str, description: str, url: str, body: str, header_links: st
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{escape(title)}</title>
   <meta name="description" content="{escape(description, quote=True)}" />
-  <meta name="theme-color" content="#08786e" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light only" />
   <link rel="canonical" href="{url}" />
 {robots}
   <link rel="icon" href="../../logo.svg" type="image/svg+xml" />
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../../theme.css" />
   <link rel="stylesheet" href="../../site.css" />
   <link rel="stylesheet" href="../guide.css" />
@@ -83,12 +82,12 @@ def document(title: str, description: str, url: str, body: str, header_links: st
     <header class="guide-header">
       <nav class="topbar" aria-label="Primary">
         <a class="brand" href="../../"><img src="../../logo.svg" alt="" width="40" height="40" /><span>Scientific Tooling</span></a>
-        <div class="topbar-links"><a href="../../#projects">Projects</a>{header_links}</div>
+        <div class="topbar-links"><a href="../../#workflows">Explore</a>{header_links}</div>
       </nav>
     </header>
     {body}
     <p class="copy-status" role="status" aria-live="polite"></p>
-    <footer class="footer"><p><a href="../../">Scientific Tooling</a></p><p>Keep the source. Make the next step clear.</p></footer>
+    <footer class="footer"><p><a href="../../">Scientific Tooling</a></p><p>Built for curious minds. Open to everyone.</p></footer>
   </div>
 </body>
 </html>
@@ -128,7 +127,7 @@ def render(guide: Guide) -> str:
       <aside class="guide-sidebar">
         <p class="eyebrow">Quick start</p>
         <nav aria-label="Quick start steps">{converter.toc}</nav>
-        <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Read in APW, keep selected evidence in RKS, and return to the original passage from your brief.</p><span class="guide-badge">{escape(guide.badge)}</span></div>
+        <div class="guide-summary"><strong>One PDF. One evidence trail.</strong><p>Open your paper, keep the passages that matter, and return to the source from your brief.</p><span class="guide-badge">{escape(guide.badge)}</span></div>
       </aside>
       <article class="guide-content">
         <p class="eyebrow">PDF to brief · Quick start</p>

@@ -44,7 +44,7 @@
     U+2215, U+FEFF, U+FFFD;
 }
 :root {
-  --font-display: "Source Serif 4", Georgia, serif;
+  --font-display: "Manrope", "Segoe UI", sans-serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --eyebrow-size: 0.7rem;
@@ -70,12 +70,12 @@ h5,
 h6 {
   margin-top: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 650;
   letter-spacing: -0.035em;
 }
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--teal, currentColor);
+  color: var(--accent, #5744bd);
   font-size: var(--eyebrow-size);
   font-weight: var(--eyebrow-weight);
   letter-spacing: var(--eyebrow-spacing);

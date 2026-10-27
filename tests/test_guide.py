@@ -85,7 +85,7 @@ class GuideTest(unittest.TestCase):
                 self.assertEqual(page.canonicals, [guide.url])
 
     def test_owned_links_assets_and_fragments_resolve(self):
-        for path in (ROOT / "index.html", *(guide.output for guide in GUIDES),
+        for path in (ROOT / "index.html", ROOT / "404.html", *(guide.output for guide in GUIDES),
                      *(ROOT / "guides" / slug / "index.html" for slug in LEGACY_PAGES)):
             for link in Page(path).links:
                 parsed = urlsplit(link)

@@ -3,112 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scientific Tooling | Reusable Scientific Workflows</title>
+    <title>Scientific Tooling | Your research. A clearer path.</title>
     <meta
       name="description"
-      content="Scientific Tooling is a public-facing home for reusable scientific workflows, manuscript-style documentation, and local-first AI interface layers for research."
+      content="Read papers, find datasets, and move analyses forward with open tools built for you and your AI agent. Start with one PDF and a source-linked brief."
     />
-    <meta
-      name="keywords"
-      content="scientific tooling, reusable scientific workflows, AI research workflows, scientific automation, local AI tools, research infrastructure"
-    />
-    <meta name="author" content="Ming Zhang" />
-    <meta
-      name="robots"
-      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    />
-    <meta
-      name="googlebot"
-      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    />
-    <meta name="theme-color" content="#08786e" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="light only" />
     <link rel="canonical" href="https://scientifictooling.org/" />
     <link rel="icon" href="./logo.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./logo.png" />
     <link rel="manifest" href="./site.webmanifest" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Scientific Tooling" />
-    <meta
-      property="og:title"
-      content="Scientific Tooling | Reusable Scientific Workflows"
-    />
-    <meta
-      property="og:description"
-      content="A public-facing home for reusable scientific workflows, inspectable manuscripts, and local-first AI interface layers."
-    />
-    <meta property="og:url" content="https://scientifictooling.org/" />
-    <meta
-      property="og:image"
-      content="https://scientifictooling.org/social-preview.png"
-    />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Scientific Tooling social preview card"
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Scientific Tooling | Reusable Scientific Workflows"
-    />
-    <meta
-      name="twitter:description"
-      content="A public-facing home for reusable scientific workflows, inspectable manuscripts, and local-first AI interface layers."
-    />
-    <meta
-      name="twitter:image"
-      content="https://scientifictooling.org/social-preview.png"
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://scientifictooling.org/#website",
-            "url": "https://scientifictooling.org/",
-            "name": "Scientific Tooling",
-            "description": "A public-facing home for reusable scientific workflows and local AI-assisted research infrastructure.",
-            "publisher": {
-              "@id": "https://scientifictooling.org/#organization"
-            }
-          },
-          {
-            "@type": "Organization",
-            "@id": "https://scientifictooling.org/#organization",
-            "name": "Scientific Tooling",
-            "url": "https://scientifictooling.org/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://scientifictooling.org/logo.svg"
-            },
-            "sameAs": ["https://github.com/Scientific-Tooling"]
-          },
-          {
-            "@type": "CollectionPage",
-            "@id": "https://scientifictooling.org/#page",
-            "url": "https://scientifictooling.org/",
-            "name": "Scientific Tooling",
-            "isPartOf": {
-              "@id": "https://scientifictooling.org/#website"
-            },
-            "about": {
-              "@id": "https://scientifictooling.org/#organization"
-            },
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": "https://scientifictooling.org/social-preview.png"
-            }
-          }
-        ]
-      }
-    </script>
     <link
       rel="preload"
       href="/assets/fonts/manrope-latin.woff2"
@@ -116,536 +21,437 @@
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href="/assets/fonts/source-serif-4-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <link rel="stylesheet" href="./theme.css" />
     <link rel="stylesheet" href="./site.css" />
+    <script src="./site.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Scientific Tooling" />
+    <meta property="og:title" content="Your research. A clearer path." />
+    <meta
+      property="og:description"
+      content="Open tools for reading papers, finding datasets, and moving science forward. Built for you and your AI agent."
+    />
+    <meta property="og:url" content="https://scientifictooling.org/" />
+    <meta
+      property="og:image"
+      content="https://scientifictooling.org/social-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Scientific Tooling. Your research. A clearer path. Read, collect, and build a source-linked brief."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Scientific Tooling",
+        "url": "https://scientifictooling.org/",
+        "description": "Open tools for connected research workflows.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Scientific Tooling",
+          "url": "https://scientifictooling.org/",
+          "logo": "https://scientifictooling.org/logo.svg",
+          "sameAs": ["https://github.com/Scientific-Tooling"]
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar" aria-label="Primary">
-          <a class="brand" href="#top" aria-label="Scientific Tooling home">
-            <img src="./logo.svg" alt="" width="40" height="40" />
-            <span>Scientific Tooling</span>
-          </a>
-          <div class="topbar-links">
-            <a class="nav-start" href="./guides/paper-to-brief/">Quick start</a>
-            <a href="#projects">Projects</a>
-            <a href="#manuscripts">Manuscripts</a>
-            <a href="https://github.com/Scientific-Tooling">GitHub</a>
+    <header class="site-header">
+      <nav class="topbar container" aria-label="Primary">
+        <a class="brand" href="./" aria-label="Scientific Tooling home"
+          ><img src="./logo.svg" width="38" height="38" alt="" /><span
+            >Scientific Tooling</span
+          ></a
+        >
+        <div class="topbar-links">
+          <a href="#workflows">Explore</a><a href="#projects">Our tools</a
+          ><a href="https://github.com/Scientific-Tooling"
+            >GitHub <span aria-hidden="true">↗</span></a
+          ><a class="nav-cta" href="./guides/paper-to-brief/"
+            >Quick start <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="home-hero container" aria-labelledby="hero-title">
+        <p class="hero-label">
+          <span class="status-dot" aria-hidden="true"></span> Open tools.
+          Connected research.
+        </p>
+        <h1 id="hero-title">
+          Your research.<br /><span>A clearer path.</span>
+        </h1>
+        <p class="hero-description">
+          Read papers, find datasets, and move analyses forward with open tools
+          built for you and your AI agent.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="./guides/paper-to-brief/"
+            >Start with a paper <span aria-hidden="true">→</span></a
+          ><a class="button button-secondary" href="#workflows"
+            >Explore workflows</a
+          >
+        </div>
+        <p class="hero-note">
+          Your workspace. Your sources. Your next discovery.
+        </p>
+      </section>
+      <section
+        class="example-section container"
+        aria-labelledby="example-title"
+      >
+        <div class="section-heading example-heading">
+          <div>
+            <p class="eyebrow">From reading to reasoning</p>
+            <h2 id="example-title">Keep the insight. Keep the source.</h2>
           </div>
-        </nav>
-
-        <section class="hero-grid" id="top">
-          <div class="hero-copy">
-            <p class="eyebrow">Open tools for scientific work</p>
-            <h1 class="title-hero">
-              Scientific workflows,<span>ready to reuse.</span>
-            </h1>
-            <p class="lede">
-              Read papers, keep the evidence, and run scientific methods with
-              tools you can inspect. Bring your own question. Build on the work.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="./guides/paper-to-brief/"
-                >Try the quick start <span aria-hidden="true">↗</span></a
-              >
-              <a class="button button-secondary" href="#projects"
-                >Explore the projects</a
-              >
+          <p>
+            Follow one passage from a real paper<br class="desktop-break" />
+            into an example research brief.
+          </p>
+        </div>
+        <div class="example-workspace">
+          <div class="workspace-topbar">
+            <div class="workspace-name">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h6l2 2h8v12H4z" />
+              </svg>
+              Single-cell methods <span class="example-badge">Example</span>
             </div>
-            <ul class="hero-notes" aria-label="Platform principles">
-              <li>Open source</li>
-              <li>Local workflows</li>
-              <li>Evidence you can trace</li>
-            </ul>
+            <span class="workspace-meta">One paper · One question</span>
           </div>
-          <aside class="hero-panel" aria-label="PDF-to-brief workflow">
-            <div class="panel-heading">
-              <span>Your first workflow</span><span aria-hidden="true">↗</span>
-            </div>
-            <h2>One paper.<br />A connected evidence trail.</h2>
-            <ol class="journey">
-              <li>
-                <span class="journey-number" aria-hidden="true">01</span>
-                <div>
-                  <h3>Read the source</h3>
-                  <p>Open your PDF with a question in mind.</p>
-                </div>
-              </li>
-              <li>
-                <span class="journey-number" aria-hidden="true">02</span>
-                <div>
-                  <h3>Keep what matters</h3>
-                  <p>Highlight passages and review the evidence.</p>
-                </div>
-              </li>
-              <li>
-                <span class="journey-number" aria-hidden="true">03</span>
-                <div>
-                  <h3>Return to the original</h3>
-                  <p>Download a brief with links to supporting passages.</p>
-                </div>
-              </li>
-            </ol>
-            <a class="panel-link" href="./guides/paper-to-brief/"
-              >Start with your paper <span aria-hidden="true">→</span></a
-            >
-          </aside>
-        </section>
-      </header>
-
-      <main id="main">
-        <section class="section" id="projects">
-          <div class="section-heading">
-            <p class="eyebrow">Current Projects</p>
-            <h2 class="title-section">
-              Find the right tool for your next question.
-            </h2>
-          </div>
-          <div class="card-grid">
-            <article class="feature-card">
-              <p class="card-tag">Flagship Repository</p>
-              <h3>Structured Intelligence</h3>
-              <p>
-                54 reusable local skills across NGS, RNA-seq, single-cell
-                RNA-seq, metagenomics, statistical analysis, protein
-                thermostability prediction and design, public database search
-                and download, and literature retrieval — orchestrated by two
-                expert agents.
-              </p>
-              <details class="project-details">
-                <summary>Explore capabilities</summary>
-                <ul>
-                  <li>
-                    End-to-end NGS pipelines: WGS/WES variant calling, RNA-seq
-                    DE, scRNA-seq, and metagenomics
-                  </li>
-                  <li>
-                    Statistical analysis suite: distribution fitting, GLMs,
-                    Bayesian estimation, survival analysis, PCA, and clustering
-                  </li>
-                  <li>
-                    Protein thermostability: Tm prediction and mutation design
-                    with bioactivity-preserving constraints
-                  </li>
-                  <li>
-                    Public archive access: SRA, GEO, ENA, GSA, NCBI Datasets,
-                    and GDC
-                  </li>
-                  <li>
-                    NCBI E-utilities and RPS-BLAST skills with manuscript-style
-                    documentation
-                  </li>
-                </ul>
-              </details>
-              <div class="artifact-row">
-                <span>54 skills</span>
-                <span>2 agents</span>
-                <span>3 manuscripts</span>
+          <div class="workspace-body">
+            <article class="paper-preview" aria-labelledby="paper-title">
+              <div class="paper-meta">
+                <span>Genome Biology · 2019</span><span>Page 1</span>
               </div>
-              <div class="card-links">
-                <a href="./structured-intelligence/">Open project site</a>
-                <a
-                  href="https://github.com/Scientific-Tooling/structured-intelligence"
-                  >Open repository</a
-                >
-              </div>
-            </article>
-
-            <article class="feature-card">
-              <p class="card-tag">Research Infrastructure</p>
-              <h3>Research Knowledge Substrate</h3>
-              <p>
-                An agent-first local research graph system for ingesting papers,
-                extracting structured research objects, querying evidence, and
-                serving a queryable local workspace. Packaged for PyPI
-                distribution.
-              </p>
-              <details class="project-details">
-                <summary>Explore capabilities</summary>
-                <ul>
-                  <li>
-                    Ingest PDFs, DOI, arXiv, PMID, and canonical paper URLs with
-                    automatic PDF acquisition
-                  </li>
-                  <li>
-                    Extract claims, methods, datasets, and concepts; build a
-                    typed graph of evidence relations
-                  </li>
-                  <li>Hybrid lexical/semantic search with local embeddings</li>
-                  <li>
-                    Agent-facing CLI and HTTP service with bundled skill export
-                    for Codex and Claude Code
-                  </li>
-                </ul>
-              </details>
-              <div class="artifact-row">
-                <span>SQLite graph store</span>
-                <span>CLI + HTTP API</span>
-                <span>PyPI package</span>
-              </div>
-              <div class="card-links">
-                <a
-                  href="https://github.com/Scientific-Tooling/research-knowledge-substrate"
-                  >Open repository</a
-                >
-                <a href="./guides/paper-to-brief/">PDF-to-brief quick start</a>
-              </div>
-            </article>
-
-            <article class="feature-card">
-              <p class="card-tag">AI Reading Interface</p>
-              <h3>Agent PDF Workbench</h3>
-              <p>
-                An agent-aware PDF workspace that exposes paper reading
-                sessions, structured user interaction events, and durable
-                annotations to AI agents via MCP. Bridges the gap between
-                passive PDF reading and agent-grounded literature review.
-              </p>
-              <details class="project-details">
-                <summary>Explore capabilities</summary>
-                <ul>
-                  <li>
-                    Local PDF.js viewer with event capture: page changes,
-                    highlights, copies, and comments
-                  </li>
-                  <li>
-                    Durable SQLite event store and annotation/note CRUD —
-                    replayable across conversations
-                  </li>
-                  <li>
-                    MCP server entrypoint for Codex and Claude Code tool
-                    integration
-                  </li>
-                  <li>
-                    React + TypeScript frontend; Python backend; full E2E test
-                    suite
-                  </li>
-                </ul>
-              </details>
-              <div class="artifact-row">
-                <span>MCP server</span>
-                <span>local viewer</span>
-                <span>event store</span>
-              </div>
-              <div class="card-links">
-                <a
-                  href="https://github.com/Scientific-Tooling/agent-pdf-workbench"
-                  >Open repository</a
-                >
-                <a href="./guides/paper-to-brief/">PDF-to-brief quick start</a>
-              </div>
-            </article>
-
-            <article class="feature-card">
-              <p class="card-tag">Agent Development Infrastructure</p>
-              <h3>Collaborative Development Workflow</h3>
-              <p>
-                A Codex skill for scoped, multi-agent software changes with
-                explicit planning, single-writer boundaries, immutable review
-                snapshots, fail-closed recovery, and accountable local commits.
-              </p>
-              <details class="project-details">
-                <summary>Explore capabilities</summary>
-                <ul>
-                  <li>
-                    Impact-scoped plans and typed TaskSpec contracts for
-                    delegated work
-                  </li>
-                  <li>
-                    One-writer workspace discipline with isolated-worktree
-                    guidance
-                  </li>
-                  <li>
-                    Content-addressed review snapshots with runtime-bound
-                    reports and coverage proofs
-                  </li>
-                  <li>
-                    Explicit timeout, cancellation, partial-work, and
-                    replacement-review recovery
-                  </li>
-                </ul>
-              </details>
-              <div class="artifact-row">
-                <span>Codex skill</span>
-                <span>review recovery</span>
-                <span>MIT license</span>
-              </div>
-              <div class="card-links">
-                <a
-                  href="https://github.com/Scientific-Tooling/collaborative-development-workflow"
-                  >Open repository</a
-                >
-              </div>
-            </article>
-
-            <article class="feature-card" id="manuscripts">
-              <p class="card-tag">Publication Layer</p>
-              <h3>Structured Intelligence Manuscript Series</h3>
-              <p>
-                Publication-style web pages that explain why the workflows
-                matter, where operational barriers exist, and how an independent
-                AI interface layer can improve reuse without hiding the original
-                method.
-              </p>
-              <details class="project-details">
-                <summary>Explore capabilities</summary>
-                <ul>
-                  <li>
-                    Web editions for NCBI E-utilities, RPS-BLAST, and NGS
-                    Analysis Expert
-                  </li>
-                  <li>
-                    Availability, limitations, and positioning written for
-                    scientists
-                  </li>
-                  <li>Markdown sources preserved for citation and revision</li>
-                </ul>
-              </details>
-              <div class="artifact-row">
-                <span>web manuscripts</span>
-                <span>markdown source</span>
-                <span>availability notes</span>
-              </div>
-              <div class="card-links">
-                <a href="./structured-intelligence/manuscripts/"
-                  >Read manuscripts</a
-                >
-                <a href="./structured-intelligence/#skills"
-                  >See flagship skills</a
-                >
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section thesis" id="why">
-          <div class="section-heading">
-            <p class="eyebrow">Why this matters</p>
-            <h2 class="title-section">
-              Methods worth sharing. Work others can build on.
-            </h2>
-          </div>
-          <div class="thesis-grid">
-            <article class="thesis-card">
-              <h3>Operational knowledge is still too private</h3>
-              <p>
-                Valuable work often depends on tacit prompts, undocumented shell
-                history, and fragile habits that do not survive handoff across
-                people, labs, or time.
-              </p>
-            </article>
-            <article class="thesis-card">
-              <h3>Powerful scientific tools remain hard to operationalize</h3>
-              <p>
-                APIs, command-line programs, and data resources are often strong
-                in capability but weak in day-to-day transferability. The
-                missing layer is frequently method packaging rather than new
-                algorithms.
-              </p>
-            </article>
-            <article class="thesis-card">
-              <h3>
-                Reusable skills can turn one-off routines into infrastructure
+              <h3 id="paper-title">
+                Normalization and variance stabilization of single-cell RNA-seq
+                data using regularized negative binomial regression
               </h3>
-              <p>
-                A published skill can preserve exact commands, references,
-                output expectations, and safety constraints while making a
-                workflow easier to invoke and easier to teach.
+              <p class="paper-authors">
+                Christoph Hafemeister &amp; Rahul Satija
               </p>
+              <div class="paper-rule"></div>
+              <p class="paper-section-label">A passage from the abstract</p>
+              <blockquote id="source-passage" tabindex="-1">
+                <mark
+                  >“pooling information across genes with similar abundances to
+                  obtain stable parameter estimates.”</mark
+                >
+              </blockquote>
+              <p class="passage-caption">
+                <span class="selection-dot" aria-hidden="true"></span> The
+                source stays attached to the idea.
+              </p>
+              <a
+                class="text-link source-link"
+                href="https://link.springer.com/content/pdf/10.1186/s13059-019-1874-1.pdf#page=1"
+                >Read the original paper <span aria-hidden="true">↗</span></a
+              >
             </article>
+            <div class="research-preview">
+              <nav class="demo-tabs" aria-label="Example stages">
+                <a id="tab-read" href="#demo-read"><span>01</span> Read</a
+                ><a id="tab-collect" href="#demo-collect"
+                  ><span>02</span> Collect</a
+                ><a id="tab-brief" href="#demo-brief"><span>03</span> Brief</a>
+              </nav>
+              <section
+                class="demo-panel"
+                id="demo-read"
+                aria-labelledby="read-heading"
+              >
+                <p class="panel-kicker">
+                  Begin with something you want to know
+                </p>
+                <h3 id="read-heading">
+                  A question gives your reading direction.
+                </h3>
+                <div class="question-box">
+                  <span class="small-label">Research question</span>
+                  <p>
+                    How does this method reduce overfitting in single-cell
+                    RNA-seq normalization?
+                  </p>
+                </div>
+                <p class="panel-description">
+                  Open a paper, read it in context, and highlight the passages
+                  that help answer your question.
+                </p>
+                <a class="demo-next text-link" href="#demo-collect"
+                  >See the evidence <span aria-hidden="true">→</span></a
+                >
+              </section>
+              <section
+                class="demo-panel"
+                id="demo-collect"
+                aria-labelledby="collect-heading"
+              >
+                <p class="panel-kicker">Connect the passage to your question</p>
+                <h3 id="collect-heading">An observation you can trace.</h3>
+                <div class="evidence-note">
+                  <div class="note-heading">
+                    <span class="small-label">Example interpretation</span
+                    ><span class="review-badge">Unreviewed</span>
+                  </div>
+                  <p>
+                    The authors share information between similarly abundant
+                    genes to stabilize the fitted model.
+                  </p>
+                  <a href="#source-passage"
+                    >Source passage · page 1
+                    <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+                <p class="panel-description">
+                  Inspect the quote and your note before importing. Keeping an
+                  observation does not mark it as reviewed.
+                </p>
+                <a class="demo-next text-link" href="#demo-brief"
+                  >See the brief <span aria-hidden="true">→</span></a
+                >
+              </section>
+              <section
+                class="demo-panel"
+                id="demo-brief"
+                aria-labelledby="brief-heading"
+              >
+                <p class="panel-kicker">Leave with something you can use</p>
+                <h3 id="brief-heading">A brief with a path back.</h3>
+                <div class="brief-note">
+                  <span class="small-label">Example brief · 1 observation</span>
+                  <p>
+                    In this paper, regularization pools information across
+                    similarly abundant genes to address overfitting.
+                    <a href="#source-passage" aria-label="Source 1, page 1"
+                      >[1]</a
+                    >
+                  </p>
+                  <div class="brief-reference">
+                    [1] Hafemeister &amp; Satija, 2019 · p. 1<br />Interpretation:
+                    unreviewed
+                  </div>
+                </div>
+                <a
+                  class="text-link"
+                  href="./examples/single-cell-brief.md"
+                  download
+                  >Download this example <span aria-hidden="true">↓</span></a
+                >
+              </section>
+            </div>
           </div>
-        </section>
-
-        <section class="section workflow-band">
-          <div class="section-heading">
-            <p class="eyebrow">Platform Structure</p>
-            <h2 class="title-section">A connected, open research toolkit.</h2>
-          </div>
-          <div class="workflow-frame">
-            <div class="workflow-step">
-              <span>1</span>
-              <h3>Organization</h3>
-              <p>
-                Scientific Tooling serves as the umbrella brand and
-                public-facing site.
-              </p>
-            </div>
-            <div class="workflow-step">
-              <span>2</span>
-              <h3>Repository</h3>
-              <p>
-                Structured Intelligence is the flagship repository and active
-                implementation surface.
-              </p>
-            </div>
-            <div class="workflow-step">
-              <span>3</span>
-              <h3>Manuscripts</h3>
-              <p>
-                Formal web editions translate reusable workflows into scientific
-                prose.
-              </p>
-            </div>
-            <div class="workflow-step">
-              <span>4</span>
-              <h3>Reuse</h3>
-              <p>
-                Researchers can inspect, rerun, critique, and extend the
-                operational layer.
-              </p>
-            </div>
-          </div>
-          <div class="workflow-note">
+          <div class="workspace-footnote">
             <p>
-              The point of this structure is clarity. The domain and
-              organization describe the broader initiative; the project path
-              identifies the current flagship implementation.
+              Illustrative workspace using a real excerpt. Try your own PDF with
+              the <a href="./guides/paper-to-brief/">quick start</a>.
+            </p>
+            <p>
+              Excerpt: Hafemeister &amp; Satija ·
+              <a href="https://creativecommons.org/licenses/by/4.0/"
+                >CC BY 4.0</a
+              >
             </p>
           </div>
-        </section>
-
-        <section class="section manuscripts">
-          <div class="section-heading">
-            <p class="eyebrow">Publishing Model</p>
-            <h2 class="title-section">
-              The method is part of the publication.
+        </div>
+      </section>
+      <section
+        class="workflow-section container"
+        id="workflows"
+        aria-labelledby="workflows-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Start where you are</p>
+            <h2 id="workflows-title">What are you working on?</h2>
+          </div>
+          <p>Choose a task. Find a useful next step.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-card paper-workflow">
+            <div class="workflow-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h4" />
+              </svg>
+            </div>
+            <p class="small-label">Read &amp; understand</p>
+            <h3>Turn a paper into<br />a source-linked brief.</h3>
+            <p>
+              Keep the passages that matter, add your observations, and return
+              to the original evidence.
+            </p>
+            <a class="text-link" href="./guides/paper-to-brief/"
+              >Try paper to brief <span aria-hidden="true">→</span></a
+            ><span class="workflow-tag">A simple place to start</span>
+          </article>
+          <article class="workflow-card analysis-workflow">
+            <div class="workflow-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4v16h17M8 16v-4M13 16V7M18 16v-7" />
+              </svg>
+            </div>
+            <p class="small-label">Analyze &amp; explore</p>
+            <h3>Move sequencing<br />data toward an answer.</h3>
+            <p>
+              Work with an NGS agent on quality control, analysis plans, and
+              reproducible outputs.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/agents/ngs-analysis-expert/AGENT.md"
+              >Meet the analysis agent <span aria-hidden="true">↗</span></a
+            ><span class="workflow-tag">Agent instructions on GitHub</span>
+          </article>
+          <article class="workflow-card data-workflow">
+            <div class="workflow-icon">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10" cy="10" r="6" />
+                <path d="m15 15 6 6M7 10h6M10 7v6" />
+              </svg>
+            </div>
+            <p class="small-label">Discover &amp; reuse</p>
+            <h3>Find public data<br />for your next question.</h3>
+            <p>
+              Search GEO for relevant studies, understand their metadata, and
+              plan what to download.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/skills/search-geo/SKILL.md"
+              >Explore the GEO skill <span aria-hidden="true">↗</span></a
+            ><span class="workflow-tag">Reusable skill on GitHub</span>
+          </article>
+        </div>
+      </section>
+      <section
+        class="agent-section container"
+        id="why"
+        aria-labelledby="agent-title"
+      >
+        <div class="agent-copy">
+          <p class="eyebrow">A little help. A clear trail.</p>
+          <h2 id="agent-title">
+            You bring the question.<br />Your agent can help with the steps.
+          </h2>
+          <p>
+            Let your AI agent coordinate the paper-to-brief workflow. Read its
+            selections, inspect the source, and decide what to keep.
+          </p>
+          <a
+            class="text-link"
+            href="./guides/paper-to-brief/#prefer-to-ask-your-agent"
+            >Set up your agent <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="agent-example">
+          <div class="prompt-bubble">
+            <span class="prompt-avatar" aria-hidden="true">You</span>
+            <p>
+              Use paper-to-brief to read this PDF and collect evidence relevant
+              to my question.
+            </p>
+          </div>
+          <div class="agent-steps">
+            <span><span aria-hidden="true">↳</span> Read the source</span
+            ><span><span aria-hidden="true">↳</span> Propose passages</span
+            ><span
+              ><span aria-hidden="true">↳</span> Keep your review in the
+              loop</span
+            >
+          </div>
+          <p class="agent-example-label">
+            An example prompt after installing the skill
+          </p>
+        </div>
+      </section>
+      <section
+        class="tools-section container"
+        id="projects"
+        aria-labelledby="tools-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Open by design</p>
+            <h2 id="tools-title">
+              Useful on their own.<br />Better connected.
             </h2>
           </div>
-          <div class="manuscript-strip">
-            <div>
-              <h3>What gets published</h3>
-              <p>
-                Skills, scripts, references, manuscripts, validation rules, and
-                reproducible output expectations. The goal is to make scientific
-                operations public enough to inspect and teach.
-              </p>
-            </div>
-            <div>
-              <h3>What remains explicit</h3>
-              <p>
-                This is an independent, unofficial AI interaction layer around
-                upstream tools and services. It does not replace original
-                software, databases, or expert judgment, and it does not imply
-                endorsement.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section repository">
-          <div class="repo-panel">
-            <div>
-              <p class="eyebrow">Organization</p>
-              <h2>Built in the open. Ready to extend.</h2>
-              <p>
-                The domain and organization name support a broader initiative
-                now spanning four active repositories: Structured Intelligence
-                for skill-based scientific workflows, Research Knowledge
-                Substrate for local paper graph management, and Agent PDF
-                Workbench for agent-aware literature reading, plus Collaborative
-                Development Workflow for accountable multi-agent software
-                development.
-              </p>
-              <p class="repo-note">
-                The broader initiative adds an independent AI interface layer
-                around existing scientific tools and services. It does not claim
-                ownership of upstream software, databases, or documentation, and
-                it does not imply endorsement by the original authors or
-                institutions.
-              </p>
-              <div class="hero-actions repo-actions">
-                <a
-                  class="button button-primary"
-                  href="https://github.com/Scientific-Tooling"
-                >
-                  Open GitHub organization
-                </a>
-                <a
-                  class="button button-secondary"
-                  href="./structured-intelligence/"
-                >
-                  Visit flagship project
-                </a>
-              </div>
-            </div>
-            <dl class="repo-meta">
-              <div>
-                <dt>Organization</dt>
-                <dd>
-                  <a href="https://github.com/Scientific-Tooling">
-                    github.com/Scientific-Tooling
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>Flagship repository</dt>
-                <dd>
-                  <a
-                    href="https://github.com/Scientific-Tooling/structured-intelligence"
-                  >
-                    structured-intelligence
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>Research graph</dt>
-                <dd>
-                  <a
-                    href="https://github.com/Scientific-Tooling/research-knowledge-substrate"
-                  >
-                    research-knowledge-substrate
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>PDF workspace</dt>
-                <dd>
-                  <a
-                    href="https://github.com/Scientific-Tooling/agent-pdf-workbench"
-                  >
-                    agent-pdf-workbench
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>Development workflow</dt>
-                <dd>
-                  <a
-                    href="https://github.com/Scientific-Tooling/collaborative-development-workflow"
-                  >
-                    collaborative-development-workflow
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt>License</dt>
-                <dd>MIT</dd>
-              </div>
-              <div>
-                <dt>Current focus</dt>
-                <dd>
-                  Reusable skills, local research graphs, agent-aware reading,
-                  development workflows, and manuscripts
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <p>Scientific Tooling</p>
-        <p>Language on the outside. Shared scientific method underneath.</p>
-      </footer>
-    </div>
+          <p>
+            Explore the tools behind the workflows.<br />Read the code, adapt a
+            skill, or contribute.
+          </p>
+        </div>
+        <div class="tool-list">
+          <a class="tool-row" href="./structured-intelligence/"
+            ><span class="tool-number">01</span>
+            <h3>Structured Intelligence</h3>
+            <p>Reusable skills and agents for scientific work</p>
+            <span class="row-arrow" aria-hidden="true">↗</span></a
+          >
+          <a
+            class="tool-row"
+            href="https://github.com/Scientific-Tooling/agent-pdf-workbench"
+            ><span class="tool-number">02</span>
+            <h3>Agent PDF Workbench</h3>
+            <p>A shared place to read and annotate papers</p>
+            <span class="row-arrow" aria-hidden="true">↗</span></a
+          >
+          <a
+            class="tool-row"
+            href="https://github.com/Scientific-Tooling/research-knowledge-substrate"
+            ><span class="tool-number">03</span>
+            <h3>Research Knowledge Substrate</h3>
+            <p>Durable evidence with sources and review status</p>
+            <span class="row-arrow" aria-hidden="true">↗</span></a
+          >
+          <a
+            class="tool-row"
+            href="https://github.com/Scientific-Tooling/collaborative-development-workflow"
+            ><span class="tool-number">04</span>
+            <h3>Collaborative Development</h3>
+            <p>A documented workflow for people and coding agents</p>
+            <span class="row-arrow" aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="manuscript-link" id="manuscripts">
+          <p>Curious about the methods behind the tools?</p>
+          <a class="text-link" href="./structured-intelligence/manuscripts/"
+            >Read the manuscripts <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section
+        class="closing-section container"
+        aria-labelledby="closing-title"
+      >
+        <div>
+          <p class="eyebrow">Small start. Useful result.</p>
+          <h2 id="closing-title">Bring a paper you’re curious about.</h2>
+          <p>One PDF, one question, and a place to keep what you learn.</p>
+        </div>
+        <a class="button button-primary" href="./guides/paper-to-brief/"
+          >Let’s get started <span aria-hidden="true">→</span></a
+        >
+      </section>
+    </main>
+    <footer class="footer container">
+      <a class="brand" href="./"
+        ><img src="./logo.svg" width="30" height="30" alt="" /><span
+          >Scientific Tooling</span
+        ></a
+      >
+      <p>Built for curious minds. Open to everyone.</p>
+      <a href="https://github.com/Scientific-Tooling"
+        >Find us on GitHub <span aria-hidden="true">↗</span></a
+      >
+    </footer>
   </body>
 </html>

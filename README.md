@@ -11,10 +11,14 @@ Scientific-Tooling/structured-intelligence.
 title classes. Downstream project repositories should sync this file instead of
 copy-editing page-title styles independently.
 
-The site uses locally served Manrope and Source Serif 4 fonts, with their open
-font licenses under `assets/fonts/`. Shared colors, spacing, navigation and
+The site uses locally served Manrope, with bundled Source Serif 4 retained for
+downstream compatibility. Their licenses are under `assets/fonts/`.
+Shared colors, spacing, navigation and
 responsive layouts live in `site.css`; reading-specific styles live in
-`guides/guide.css`. Project capability lists use native disclosure controls.
+`guides/guide.css`. The homepage leads with research tasks and a progressively
+enhanced three-stage paper-to-brief example. The example is illustrative, with an attributed,
+page-checked excerpt and an explicitly unreviewed interpretation; its downloadable
+brief is in `examples/single-cell-brief.md`.
 The guide's current-section indicator enhances ordinary anchor navigation.
 Fonts, layout, navigation and content remain usable without JavaScript or
 external font services; print and reduced-motion preferences are respected.
@@ -22,8 +26,8 @@ external font services; print and reduced-motion preferences are respected.
 ## PDF-to-brief quick start
 
 The [quick start](guides/paper-to-brief.md) is the single onboarding guide for
-Windows, Linux and macOS. Homepage navigation, the main action and the RKS/APW
-project cards link directly to it. The CLI handles setup and the reader;
+Windows, Linux and macOS. Homepage navigation, the main action and the paper
+workflow link directly to it. The CLI handles setup and the reader;
 the bundled agent skill can coordinate the same workflow.
 
 Detailed individual-tool instructions and their native shell/workflow tests live
