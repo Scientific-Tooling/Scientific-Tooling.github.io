@@ -29,7 +29,7 @@
         <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../paper-to-brief.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
-    <!-- Generated from guides/paper-to-brief.md. SHA-256: e3117a48b0979afd21487c6153561902671bada401f41da32b7e7bdd03bead31 -->
+    <!-- Generated from guides/paper-to-brief.md. SHA-256: e5a3393113d3f1520780f25fb903acf1eef86ba24c1ba56841ae986ac32a10e5 -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
         <p class="eyebrow">In this walkthrough</p>
@@ -66,22 +66,25 @@ The same workflow works on Windows, Linux and macOS.</p>
 <h2 id="1-install-once">1. Install once</h2>
 <p>You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
 Your agent can do this setup for you. Install the workflow package:</p>
-<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 1">Copy</button></div><pre tabindex="0" aria-label="Command block 1"><code class="language-text">python -m pip install &quot;git+https://github.com/Scientific-Tooling/structured-intelligence.git&quot;
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 1">Copy</button></div><pre tabindex="0" aria-label="Command block 1"><code class="language-text">python -m pip install --upgrade &quot;git+https://github.com/Scientific-Tooling/structured-intelligence.git&quot;
 </code></pre></div>
 <p>Use <code>python3</code> if that is your interpreter's name. The installation includes
 compatible RKS and APW versions and the built PDF reader. No Node.js, model API
 key or MCP connection is needed. This is a Git source installation; no new PyPI
 release is required. If your system Python disallows package installation, use
 a virtual environment rather than overriding its protection.</p>
+<p>The short command is <strong><code>sci</code></strong> (version 0.1.1 or later). The original
+<code>scientific-tooling</code> command also works. The installation command above upgrades
+an existing installation while preserving your saved workspaces.</p>
 <h2 id="2-open-your-paper">2. Open your paper</h2>
 <p>Replace the PDF path and question with your own:</p>
-<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 2">Copy</button></div><pre tabindex="0" aria-label="Command block 2"><code class="language-text">scientific-tooling start &quot;paper.pdf&quot; --question &quot;What evidence addresses my question?&quot; --workspace &quot;my-review&quot;
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 2">Copy</button></div><pre tabindex="0" aria-label="Command block 2"><code class="language-text">sci start &quot;paper.pdf&quot; --question &quot;What evidence addresses my question?&quot; --workspace &quot;my-review&quot;
 </code></pre></div>
 <p>The reader opens automatically. <strong>One workspace holds one paper and question.</strong>
 The command creates the workspace, preserves the PDF revision, and starts the
 reader. You do not need a second terminal or any paper/session IDs.</p>
 <p>If your environment does not put the command on PATH, use
-<code>python -m scientific_tooling</code> instead of <code>scientific-tooling</code>.</p>
+<code>python -m scientific_tooling</code> instead of <code>sci</code>.</p>
 <h2 id="3-keep-evidence-and-get-your-brief">3. Keep evidence and get your brief</h2>
 <ol>
 <li>Highlight a passage in the PDF; add a comment if useful.</li>
@@ -94,7 +97,7 @@ highlighted passages. Importing an observation preserves its review status;
 it does not establish scientific agreement or human review.</p>
 <h2 id="prefer-to-ask-your-agent">Prefer to ask your agent?</h2>
 <p>Install the bundled skill into your agent's skills directory. For example:</p>
-<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 3">Copy</button></div><pre tabindex="0" aria-label="Command block 3"><code class="language-text">scientific-tooling skill --dest &quot;~/.codex/skills&quot;
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 3">Copy</button></div><pre tabindex="0" aria-label="Command block 3"><code class="language-text">sci skill --dest &quot;~/.codex/skills&quot;
 </code></pre></div>
 <p>Use <code>~/.claude/skills</code> for a host using that directory, or provide its actual
 skills directory. Reload skills in your agent, then ask:</p>
@@ -106,14 +109,14 @@ coordinates the same workflow. You can inspect its selections in the PDF reader.
 Agent-created interpretations stay unreviewed. The CLI itself makes no model
 calls; your agent host supplies the reasoning and governs any model data sharing.</p>
 <h2 id="stop-and-continue-later">Stop and continue later</h2>
-<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 4">Copy</button></div><pre tabindex="0" aria-label="Command block 4"><code class="language-text">scientific-tooling stop --workspace &quot;my-review&quot;
-scientific-tooling resume --workspace &quot;my-review&quot;
+<div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 4">Copy</button></div><pre tabindex="0" aria-label="Command block 4"><code class="language-text">sci stop --workspace &quot;my-review&quot;
+sci resume --workspace &quot;my-review&quot;
 </code></pre></div>
 <p>Resume restores the saved workspace and reader. Passage links work while the
 reader is running. Repeating an import does not duplicate its evidence. If a
 selection changes after preview, the workflow asks for a fresh preview.</p>
-<p>For installation diagnostics, run <code>scientific-tooling doctor</code>. For saved progress,
-run <code>scientific-tooling status --workspace "my-review"</code>. Back up the entire
+<p>For installation diagnostics, run <code>sci doctor</code>. For saved progress,
+run <code>sci status --workspace "my-review"</code>. Back up the entire
 workspace after stopping all writers; restore it at the same absolute location
 in this first version.</p>
 <p>See the <a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md">CLI and recovery reference</a>
