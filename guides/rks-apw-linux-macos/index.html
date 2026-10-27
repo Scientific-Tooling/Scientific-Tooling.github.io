@@ -29,7 +29,7 @@
         <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../rks-apw-linux-macos.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
-    <!-- Generated from guides/rks-apw-linux-macos.md. SHA-256: b3d7450b44d1f3447ddd215e7584f7a8bbe73d9e1e9652e0ecca44b54ed54f48 -->
+    <!-- Generated from guides/rks-apw-linux-macos.md. SHA-256: 9eb12716fcd65d7f4807aacbfd3419d5d27292affff7a47460924398551743b9 -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
         <p class="eyebrow">In this walkthrough</p>
@@ -79,7 +79,7 @@ example <code>python3.12</code>) for the one venv-creation command below.</p>
 <blockquote>
 <p>This is a source-checkout workflow. It requires the features in RKS
 <a href="https://github.com/Scientific-Tooling/research-knowledge-substrate/commit/6fc5c61">6fc5c61</a>,
-APW <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/2888ed4">2888ed4</a>,
+APW <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/a435c2f">a435c2f</a>,
 and Structured Intelligence
 <a href="https://github.com/Scientific-Tooling/structured-intelligence/commit/a673678">a673678</a>,
 or compatible later revisions. Older package releases may lack these commands.</p>
@@ -139,7 +139,7 @@ verifies a copy of this PDF revision in <code>review/pdfs</code>.</p>
 <h2 id="3-open-the-reader-and-highlight-a-passage">3. Open the reader and highlight a passage</h2>
 <p>In a <strong>second terminal (B)</strong>, start the viewer and leave it running:</p>
 <div class="code-block"><div class="code-toolbar"><span>Bash / zsh</span><button type="button" class="copy-button" aria-label="Copy Bash / zsh block 3">Copy</button></div><pre tabindex="0" aria-label="Bash / zsh block 3"><code class="language-bash">work=&quot;$HOME/scientific-tooling-demo&quot;
-&quot;$work/.venv/bin/apw-viewer-server&quot; --db-path &quot;$work/review/events.db&quot; --pdf-root &quot;$work/review/pdfs&quot;
+&quot;$work/.venv/bin/apw-viewer-server&quot; --host 127.0.0.1 --port 8790 --db-path &quot;$work/review/events.db&quot; --pdf-root &quot;$work/review/pdfs&quot;
 </code></pre></div>
 <p>Open the URL printed by terminal A in your browser. For local use, the browser
 and tools share a computer. For SSH, use the tunnel note below.</p>

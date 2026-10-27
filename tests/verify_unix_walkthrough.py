@@ -121,13 +121,8 @@ def verify(shell: str) -> Path:
                     time.sleep(0.2)
             # Own the viewer directly rather than an extra shell process during signal checks.
             server_command = test_location(blocks[2]).replace('"$work/.venv/bin/apw-viewer-server"', 'exec "$work/.venv/bin/apw-viewer-server"', 1)
-            diagnostics = artifacts / "startup-diagnostics"
-            diagnostics.mkdir()
-            (diagnostics / "sitecustomize.py").write_text(
-                "import faulthandler\nfaulthandler.dump_traceback_later(5, repeat=True)\n", encoding="utf-8")
-            server_environment = {**environment, "PYTHONPATH": str(diagnostics) + os.pathsep + environment.get("PYTHONPATH", "")}
-            server = subprocess.Popen([shell, "-c", "set -x\n" + server_command], stdout=server_log,
-                                      stderr=server_log, env=server_environment, start_new_session=True)
+            server = subprocess.Popen([shell, "-c", server_command], stdout=server_log,
+                                      stderr=server_log, env=environment, start_new_session=True)
             api = "http://127.0.0.1:8790"
             deadline = time.monotonic() + 30
             while True:

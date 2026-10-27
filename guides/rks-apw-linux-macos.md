@@ -18,7 +18,7 @@ example `python3.12`) for the one venv-creation command below.
 
 > This is a source-checkout workflow. It requires the features in RKS
 > [6fc5c61](https://github.com/Scientific-Tooling/research-knowledge-substrate/commit/6fc5c61),
-> APW [2888ed4](https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/2888ed4),
+> APW [a435c2f](https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/a435c2f),
 > and Structured Intelligence
 > [a673678](https://github.com/Scientific-Tooling/structured-intelligence/commit/a673678),
 > or compatible later revisions. Older package releases may lack these commands.
@@ -91,7 +91,7 @@ In a **second terminal (B)**, start the viewer and leave it running:
 
 ```bash
 work="$HOME/scientific-tooling-demo"
-"$work/.venv/bin/apw-viewer-server" --db-path "$work/review/events.db" --pdf-root "$work/review/pdfs"
+"$work/.venv/bin/apw-viewer-server" --host 127.0.0.1 --port 8790 --db-path "$work/review/events.db" --pdf-root "$work/review/pdfs"
 ```
 
 Open the URL printed by terminal A in your browser. For local use, the browser

@@ -13,9 +13,9 @@ activation is needed for this path; APW's viewer assets are already built.
 
 > This is a source-checkout workflow. It requires the features in RKS
 > [6fc5c61](https://github.com/Scientific-Tooling/research-knowledge-substrate/commit/6fc5c61),
-> APW [7715497](https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/7715497),
+> APW [a435c2f](https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/a435c2f),
 > and Structured Intelligence
-> [2993fc6](https://github.com/Scientific-Tooling/structured-intelligence/commit/2993fc6),
+> [a673678](https://github.com/Scientific-Tooling/structured-intelligence/commit/a673678),
 > or compatible later revisions. Older package releases may lack these commands.
 
 ## 1. Install in a fresh folder
@@ -84,7 +84,7 @@ In a **second PowerShell terminal (B)**, start the viewer and leave it running:
 
 ```powershell
 $work = Join-Path $env:USERPROFILE "scientific-tooling-demo"
-& "$work\.venv\Scripts\apw-viewer-server.exe" --db-path "$work\review\events.db" --pdf-root "$work\review\pdfs"
+& "$work\.venv\Scripts\apw-viewer-server.exe" --host 127.0.0.1 --port 8790 --db-path "$work\review\events.db" --pdf-root "$work\review\pdfs"
 ```
 
 Back in **terminal A**, open the session:

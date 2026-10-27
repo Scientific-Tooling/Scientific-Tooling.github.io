@@ -29,7 +29,7 @@
         <div class="topbar-links"><a href="../../#projects">Projects</a><a href="../rks-apw-windows.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
-    <!-- Generated from guides/rks-apw-windows.md. SHA-256: 419d4c77238de1411b99798ab2427c2ca4ee7810f27a89c197916babc1d79bb6 -->
+    <!-- Generated from guides/rks-apw-windows.md. SHA-256: 4270f0c1b1591bb30844742d9622193eee1b44099700dd1806547bba27c72d9a -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
         <p class="eyebrow">In this walkthrough</p>
@@ -75,9 +75,9 @@ activation is needed for this path; APW's viewer assets are already built.</p>
 <blockquote>
 <p>This is a source-checkout workflow. It requires the features in RKS
 <a href="https://github.com/Scientific-Tooling/research-knowledge-substrate/commit/6fc5c61">6fc5c61</a>,
-APW <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/7715497">7715497</a>,
+APW <a href="https://github.com/Scientific-Tooling/agent-pdf-workbench/commit/a435c2f">a435c2f</a>,
 and Structured Intelligence
-<a href="https://github.com/Scientific-Tooling/structured-intelligence/commit/2993fc6">2993fc6</a>,
+<a href="https://github.com/Scientific-Tooling/structured-intelligence/commit/a673678">a673678</a>,
 or compatible later revisions. Older package releases may lack these commands.</p>
 </blockquote>
 <h2 id="1-install-in-a-fresh-folder">1. Install in a fresh folder</h2>
@@ -133,7 +133,7 @@ verifies a copy of this PDF revision in <code>review\pdfs</code>.</p>
 <h2 id="3-open-the-reader-and-highlight-a-passage">3. Open the reader and highlight a passage</h2>
 <p>In a <strong>second PowerShell terminal (B)</strong>, start the viewer and leave it running:</p>
 <div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 3">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 3"><code class="language-powershell">$work = Join-Path $env:USERPROFILE &quot;scientific-tooling-demo&quot;
-&amp; &quot;$work\.venv\Scripts\apw-viewer-server.exe&quot; --db-path &quot;$work\review\events.db&quot; --pdf-root &quot;$work\review\pdfs&quot;
+&amp; &quot;$work\.venv\Scripts\apw-viewer-server.exe&quot; --host 127.0.0.1 --port 8790 --db-path &quot;$work\review\events.db&quot; --pdf-root &quot;$work\review\pdfs&quot;
 </code></pre></div>
 <p>Back in <strong>terminal A</strong>, open the session:</p>
 <div class="code-block"><div class="code-toolbar"><span>PowerShell</span><button type="button" class="copy-button" aria-label="Copy PowerShell block 4">Copy</button></div><pre tabindex="0" aria-label="PowerShell block 4"><code class="language-powershell">Start-Process $handoff.apw.viewer_url
