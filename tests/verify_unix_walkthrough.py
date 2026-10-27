@@ -121,8 +121,13 @@ def verify(shell: str) -> Path:
                     time.sleep(0.2)
             # Own the viewer directly rather than an extra shell process during signal checks.
             server_command = test_location(blocks[2]).replace('"$work/.venv/bin/apw-viewer-server"', 'exec "$work/.venv/bin/apw-viewer-server"', 1)
-            server = subprocess.Popen([shell, "-c", server_command], stdout=server_log,
-                                      stderr=server_log, env=environment, start_new_session=True)
+            diagnostics = artifacts / "startup-diagnostics"
+            diagnostics.mkdir()
+            (diagnostics / "sitecustomize.py").write_text(
+                "import faulthandler\nfaulthandler.dump_traceback_later(5, repeat=True)\n", encoding="utf-8")
+            server_environment = {**environment, "PYTHONPATH": str(diagnostics) + os.pathsep + environment.get("PYTHONPATH", "")}
+            server = subprocess.Popen([shell, "-c", "set -x\n" + server_command], stdout=server_log,
+                                      stderr=server_log, env=server_environment, start_new_session=True)
             api = "http://127.0.0.1:8790"
             deadline = time.monotonic() + 30
             while True:
@@ -140,6 +145,12 @@ def verify(shell: str) -> Path:
                             "loopback_proxy_bypass": urllib.request.proxy_bypass("127.0.0.1"),
                             "viewer_log": (artifacts / "terminal-b.log").read_text(encoding="utf-8", errors="replace")[-1500:],
                         }
+                        if sys.platform == "darwin":
+                            details["process"] = subprocess.run(
+                                ["ps", "-p", str(server.pid), "-o", "pid=,ppid=,state=,etime=,command="],
+                                capture_output=True, text=True, timeout=5).stdout[-1000:]
+                            subprocess.run(["sample", str(server.pid), "1", "1", "-file", str(artifacts / "server-sample.txt")],
+                                           capture_output=True, timeout=10, check=False)
                         raise RuntimeError("Viewer startup diagnostics: " + json.dumps(details))
                     time.sleep(0.2)
             quote = "Reading handoff test source."

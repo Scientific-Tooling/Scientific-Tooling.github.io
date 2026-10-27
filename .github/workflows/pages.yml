@@ -61,6 +61,7 @@ jobs:
             .preview/unix-*/terminal-*.log
             .preview/unix-*/receipt.json
             .preview/unix-*/terminal-a.sh
+            .preview/unix-*/server-sample.txt
           retention-days: 7
           include-hidden-files: true
 
