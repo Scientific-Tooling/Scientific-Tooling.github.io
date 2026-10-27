@@ -20,7 +20,7 @@ key or MCP connection is needed. This is a Git source installation; no new PyPI
 release is required. If your system Python disallows package installation, use
 a virtual environment rather than overriding its protection.
 
-The short command is **`sci`** (version 0.3.0 or later). The original
+The short command is **`sci`** (version 0.3.1 or later for the reader shown here). The original
 `scientific-tooling` command also works. The installation command above upgrades
 an existing installation while preserving your saved workspaces. If you are
 moving from Python 3.10 or 3.11, follow the
@@ -45,9 +45,13 @@ If your environment does not put the command on PATH, use
 ## 3. Keep evidence and get your brief
 
 1. Highlight a passage in the PDF; add a comment if useful.
-2. In **Evidence & brief**, check the highlights or notes you want to keep.
+2. In the **Evidence** tab, check the highlights or saved notes you want to keep.
 3. Click **Preview selected evidence** and inspect the quotes and comments.
-4. Click **Import evidence & create brief**, then **Download brief**.
+4. Click **Import evidence & create brief**. Open **Brief**, then **Download brief**.
+
+Use **Notes** to connect your thoughts to supporting highlights. Resize the
+sidebars or choose **Focus on paper** for more reading space. On a phone, use
+the Papers and Workspace buttons to open one panel at a time.
 
 The brief includes original quotes, page references and links back to the
 highlighted passages. Importing an observation preserves its review status;
@@ -62,7 +66,7 @@ sci start "paper-a.pdf" "paper-b.pdf" --question "Which methods fit my dataset?"
 sci add "paper-c.pdf" --workspace "methods"
 ```
 
-Switch between them under **Project papers** in the reader. Refresh an open page
+Switch between them under **Project papers** in the reader. Use **Refresh project**
 after adding papers. Each paper keeps its own highlights and progress. The shared
 brief groups evidence by paper, preserves source links, and shows which papers
 still lack imported evidence. Identical PDFs are reused automatically.
