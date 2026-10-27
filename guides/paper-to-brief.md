@@ -6,7 +6,8 @@ The same commands work on Windows, Linux and macOS.
 
 ## 1. Install once
 
-You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
+You need Git and Python 3.12 or newer with pip. **Python 3.14 is recommended**
+for new environments.
 Your agent can do this setup for you. Install the workflow package:
 
 ```text
@@ -19,9 +20,12 @@ key or MCP connection is needed. This is a Git source installation; no new PyPI
 release is required. If your system Python disallows package installation, use
 a virtual environment rather than overriding its protection.
 
-The short command is **`sci`** (version 0.1.1 or later). The original
+The short command is **`sci`** (version 0.2.0 or later). The original
 `scientific-tooling` command also works. The installation command above upgrades
-an existing installation while preserving your saved workspaces.
+an existing installation while preserving your saved workspaces. If you are
+moving from Python 3.10 or 3.11, follow the
+[Python upgrade steps](https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md#upgrading-from-python-310-or-311)
+to continue with your saved workspace.
 
 ## 2. Open your paper
 

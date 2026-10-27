@@ -39,7 +39,8 @@ quick-start link and the appropriate advanced reference. Old Markdown URLs also
 remain available. The legacy pages point their canonical metadata at the quick
 start and are excluded from the sitemap.
 
-Edit `guides/paper-to-brief.md`, then regenerate:
+Use Python 3.14 for the documentation build (`.python-version`); CI also checks
+3.12 and 3.15. Edit `guides/paper-to-brief.md`, then regenerate:
 
 ```text
 python -m pip install -r requirements-docs.txt

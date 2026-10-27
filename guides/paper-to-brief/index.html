@@ -31,7 +31,7 @@
         <div class="topbar-links"><a href="../../#workflows">Explore</a><a href="../paper-to-brief.md">Markdown source</a><button type="button" class="print-button">Print guide</button></div>
       </nav>
     </header>
-    <!-- Generated from guides/paper-to-brief.md. SHA-256: cd4421c26496fc591a9d55730ef4dd2f31df57d4b6a345411f43d0af483abd15 -->
+    <!-- Generated from guides/paper-to-brief.md. SHA-256: a5aa46f5987274ff7cc7afa60f1ad142be56370f2b90e88de98aca7a41f75274 -->
     <main class="guide-layout" id="walkthrough">
       <aside class="guide-sidebar">
         <p class="eyebrow">Quick start</p>
@@ -65,7 +65,8 @@ back to the source. Scientific Tooling handles the workspace and reader setup.
 The same commands work on Windows, Linux and macOS.</p>
 <nav class="guide-overview" aria-label="Workflow overview"><a href="#1-install-once"><span aria-hidden="true">01</span>Install once</a><a href="#2-open-your-paper"><span aria-hidden="true">02</span>Open a PDF</a><a href="#3-keep-evidence-and-get-your-brief"><span aria-hidden="true">03</span>Keep evidence</a></nav>
 <h2 id="1-install-once"><span class="step-number">1</span> Install once</h2>
-<p>You need Git and Python 3.10–3.12 with pip in your chosen Python environment.
+<p>You need Git and Python 3.12 or newer with pip. <strong>Python 3.14 is recommended</strong>
+for new environments.
 Your agent can do this setup for you. Install the workflow package:</p>
 <div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 1">Copy</button></div><pre tabindex="0" aria-label="Command block 1"><code class="language-text">python -m pip install --upgrade &quot;git+https://github.com/Scientific-Tooling/structured-intelligence.git&quot;
 </code></pre></div>
@@ -74,9 +75,12 @@ compatible RKS and APW versions and the built PDF reader. No Node.js, model API
 key or MCP connection is needed. This is a Git source installation; no new PyPI
 release is required. If your system Python disallows package installation, use
 a virtual environment rather than overriding its protection.</p>
-<p>The short command is <strong><code>sci</code></strong> (version 0.1.1 or later). The original
+<p>The short command is <strong><code>sci</code></strong> (version 0.2.0 or later). The original
 <code>scientific-tooling</code> command also works. The installation command above upgrades
-an existing installation while preserving your saved workspaces.</p>
+an existing installation while preserving your saved workspaces. If you are
+moving from Python 3.10 or 3.11, follow the
+<a href="https://github.com/Scientific-Tooling/structured-intelligence/blob/main/workflows/research/quickstart.md#upgrading-from-python-310-or-311">Python upgrade steps</a>
+to continue with your saved workspace.</p>
 <h2 id="2-open-your-paper"><span class="step-number">2</span> Open your paper</h2>
 <p>Replace the PDF path and question with your own:</p>
 <div class="code-block"><div class="code-toolbar"><span>Command</span><button type="button" class="copy-button" aria-label="Copy Command block 2">Copy</button></div><pre tabindex="0" aria-label="Command block 2"><code class="language-text">sci start &quot;paper.pdf&quot; --question &quot;What evidence addresses my question?&quot; --workspace &quot;my-review&quot;
